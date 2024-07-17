@@ -1,6 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 import 'package:ju_express/src/data/local/app_shared_preferences.dart';
+import 'package:ju_express/src/presentation/ui/init_screen.dart';
+
+import '../src/presentation/ui/splash_screen.dart';
 
 @singleton
 class AppRoute {
@@ -14,11 +17,11 @@ class AppRoute {
       //   path: RoutePath.splash,
       //   builder: (context, state) => const SplashScreen(),
       // ),
-      // GoRoute(
-      //   name: 'intro',
-      //   path: RoutePath.intro,
-      //   builder: (context, state) => const IntroScreen(),
-      // ),
+      GoRoute(
+        name: 'init',
+        path: RoutePath.initPage,
+        builder: (context, state) => const InitScreen(),
+      ),
       // GoRoute(
       //   name: 'home',
       //   path: RoutePath.home,
@@ -122,7 +125,7 @@ class AppRoute {
 }
 
 class RoutePath {
-  static const String splash = "/";
+  static const String splash = "/splash";
   static const String home = "/home";
   static const String staticContent = "/static_content";
   static const String departureList = "/departure_list";
@@ -134,7 +137,7 @@ class RoutePath {
   static const String helpAndSupport = "/help_support";
   static const String language = "/language";
   static const String intro = "/intro";
-  static const String initLang = "/init_lang";
+  static const String initPage = "/";
   static const String paymentConfirm = "/payment_confirm";
   static const String ticketDetails = "/ticket_details";
 }

@@ -14,7 +14,7 @@ class Environment {
     return DevelopmentEnvironment.development();
   }
 
-  // Creates an environment configuration for the production environment.
+  /// Creates an environment configuration for the production environment.
   factory Environment.production() {
     return ProductionEnvironment.production();
   }

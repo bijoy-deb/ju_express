@@ -40,6 +40,17 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+    flavorDimensions  "flavor"
+
+    productFlavors {
+        dev {
+            dimension = "flavor"
+        }
+
+        prod {
+            dimension = "flavor"
+        }
+    }
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.bijoy_ju.ju_express"

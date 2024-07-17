@@ -16,8 +16,8 @@ abstract class AppSharedPreferences {
 // Future setToCity(District value);
 // District getToCity();
 //
-// Future setFirstEntry(bool value);
-// bool getFirstEntry();
+Future setFirstTimeOpen(bool value);
+bool getFirstTimeOpen();
 //
 // Future setHomePageInt(HomePageIntRes value);
 // HomePageIntRes getHomePageInt();
@@ -49,6 +49,15 @@ class AppSharedPreferencesImpl extends AppSharedPreferences {
   @override
   String getVUHash() {
     return sharedPreferences.getString('vuHash') ?? "";
+  }
+  @override
+  bool getFirstTimeOpen() {
+    return sharedPreferences.getBool('first_time_open') ?? true;
+  }
+
+  @override
+  setFirstTimeOpen(bool value) async {
+    return await sharedPreferences.setBool('first_time_open', value);
   }
 }
 //
@@ -88,15 +97,7 @@ class AppSharedPreferencesImpl extends AppSharedPreferences {
 //     return await sharedPreferences.setString('to', jsonEncode(value.toJson()));
 //   }
 //
-//   @override
-//   bool getFirstEntry() {
-//     return sharedPreferences.getBool('first_entry') ?? true;
-//   }
-//
-//   @override
-//   setFirstEntry(bool value) async {
-//     return await sharedPreferences.setBool('first_entry', value);
-//   }
+
 //
 //   @override
 //   String getVHash() {
