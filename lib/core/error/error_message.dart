@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../src/utils/global.dart';
+import '../../source/utils/global.dart';
 
 class ErrorMessage {
   final String message;

@@ -1,15 +1,15 @@
 import 'package:ju_express/env/dev/dev_env.dart';
 import 'package:ju_express/env/prod/prod_env.dart';
 
-// Defines the environment configuration for the application.
-// This includes the base URL for API endpoints.
+/// Defines the environment configuration for the application.
+/// This includes the base URL for API endpoints.
 class Environment {
   final String url;
 
-  // Constructs an Environment object with the given URL.
+  /// Constructs an Environment object with the given URL.
   Environment({required this.url});
 
-  // Creates an environment configuration for the development environment.
+  /// Creates an environment configuration for the development environment.
   factory Environment.development() {
     return DevelopmentEnvironment.development();
   }

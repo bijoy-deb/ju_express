@@ -4,9 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ju_express/route/route_config.dart';
-import 'package:ju_express/src/proviers/app_prefs.dart';
-import 'package:ju_express/src/utils/app_color.dart';
-import 'package:ju_express/src/utils/custom_extensions.dart';
+
+import 'package:ju_express/source/proviers/app_prefs.dart';
+import 'package:ju_express/source/utils/app_color.dart';
+import 'package:ju_express/source/utils/custom_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_value/shared_value.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -31,7 +32,7 @@ myMain() {
     await configureInjection();
     runApp(ChangeNotifierProvider(
       create: (context) => AppPrefs(),
-      child: SharedValue.wrapApp(MyApp()),
+      child: SharedValue.wrapApp(const MyApp()),
     ));
   }, (error, stackTrack) {});
 }

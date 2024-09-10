@@ -1,0 +1,1726 @@
+{
+  "countries": [
+    {
+      "contID": "1",
+      "contCode": "AF",
+      "contName": "Afghanistan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "2",
+      "contCode": "AL",
+      "contName": "Albania",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "3",
+      "contCode": "DZ",
+      "contName": "Algeria",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "4",
+      "contCode": "DS",
+      "contName": "American Samoa",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "5",
+      "contCode": "AD",
+      "contName": "Andorra",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "6",
+      "contCode": "AO",
+      "contName": "Angola",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "7",
+      "contCode": "AI",
+      "contName": "Anguilla",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "8",
+      "contCode": "AQ",
+      "contName": "Antarctica",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "9",
+      "contCode": "AG",
+      "contName": "Antigua and Barbuda",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "10",
+      "contCode": "AR",
+      "contName": "Argentina",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "11",
+      "contCode": "AM",
+      "contName": "Armenia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "12",
+      "contCode": "AW",
+      "contName": "Aruba",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "13",
+      "contCode": "AU",
+      "contName": "Australia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "14",
+      "contCode": "AT",
+      "contName": "Austria",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "15",
+      "contCode": "AZ",
+      "contName": "Azerbaijan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "16",
+      "contCode": "BS",
+      "contName": "Bahamas",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "17",
+      "contCode": "BH",
+      "contName": "Bahrain",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "18",
+      "contCode": "BD",
+      "contName": "Bangladesh",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "19",
+      "contCode": "BB",
+      "contName": "Barbados",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "20",
+      "contCode": "BY",
+      "contName": "Belarus",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "21",
+      "contCode": "BE",
+      "contName": "Belgium",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "22",
+      "contCode": "BZ",
+      "contName": "Belize",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "23",
+      "contCode": "BJ",
+      "contName": "Benin",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "24",
+      "contCode": "BM",
+      "contName": "Bermuda",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "25",
+      "contCode": "BT",
+      "contName": "Bhutan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "26",
+      "contCode": "BO",
+      "contName": "Bolivia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "27",
+      "contCode": "BA",
+      "contName": "Bosnia and Herzegovina",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "28",
+      "contCode": "BW",
+      "contName": "Botswana",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "29",
+      "contCode": "BV",
+      "contName": "Bouvet Island",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "30",
+      "contCode": "BR",
+      "contName": "Brazil",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "31",
+      "contCode": "IO",
+      "contName": "British Indian Ocean Territory",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "32",
+      "contCode": "BN",
+      "contName": "Brunei Darussalam",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "33",
+      "contCode": "BG",
+      "contName": "Bulgaria",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "34",
+      "contCode": "BF",
+      "contName": "Burkina Faso",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "35",
+      "contCode": "BI",
+      "contName": "Burundi",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "36",
+      "contCode": "KH",
+      "contName": "Cambodia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "37",
+      "contCode": "CM",
+      "contName": "Cameroon",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "38",
+      "contCode": "CA",
+      "contName": "Canada",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "39",
+      "contCode": "CV",
+      "contName": "Cape Verde",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "40",
+      "contCode": "KY",
+      "contName": "Cayman Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "41",
+      "contCode": "CF",
+      "contName": "Central African Republic",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "42",
+      "contCode": "TD",
+      "contName": "Chad",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "43",
+      "contCode": "CL",
+      "contName": "Chile",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "44",
+      "contCode": "CN",
+      "contName": "China",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "45",
+      "contCode": "CX",
+      "contName": "Christmas Island",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "46",
+      "contCode": "CC",
+      "contName": "Cocos (Keeling) Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "47",
+      "contCode": "CO",
+      "contName": "Colombia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "48",
+      "contCode": "KM",
+      "contName": "Comoros",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "49",
+      "contCode": "CG",
+      "contName": "Congo",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "50",
+      "contCode": "CK",
+      "contName": "Cook Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "51",
+      "contCode": "CR",
+      "contName": "Costa Rica",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "52",
+      "contCode": "HR",
+      "contName": "Croatia (Hrvatska)",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "53",
+      "contCode": "CU",
+      "contName": "Cuba",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "54",
+      "contCode": "CY",
+      "contName": "Cyprus",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "55",
+      "contCode": "CZ",
+      "contName": "Czech Republic",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "56",
+      "contCode": "DK",
+      "contName": "Denmark",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "57",
+      "contCode": "DJ",
+      "contName": "Djibouti",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "58",
+      "contCode": "DM",
+      "contName": "Dominica",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "59",
+      "contCode": "DO",
+      "contName": "Dominican Republic",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "60",
+      "contCode": "TP",
+      "contName": "East Timor",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "61",
+      "contCode": "EC",
+      "contName": "Ecuador",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "62",
+      "contCode": "EG",
+      "contName": "Egypt",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "63",
+      "contCode": "SV",
+      "contName": "El Salvador",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "64",
+      "contCode": "GQ",
+      "contName": "Equatorial Guinea",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "65",
+      "contCode": "ER",
+      "contName": "Eritrea",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "66",
+      "contCode": "EE",
+      "contName": "Estonia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "67",
+      "contCode": "ET",
+      "contName": "Ethiopia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "68",
+      "contCode": "FK",
+      "contName": "Falkland Islands (Malvinas)",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "69",
+      "contCode": "FO",
+      "contName": "Faroe Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "70",
+      "contCode": "FJ",
+      "contName": "Fiji",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "71",
+      "contCode": "FI",
+      "contName": "Finland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "72",
+      "contCode": "FR",
+      "contName": "France",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "73",
+      "contCode": "FX",
+      "contName": "France, Metropolitan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "74",
+      "contCode": "GF",
+      "contName": "French Guiana",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "75",
+      "contCode": "PF",
+      "contName": "French Polynesia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "76",
+      "contCode": "TF",
+      "contName": "French Southern Territories",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "77",
+      "contCode": "GA",
+      "contName": "Gabon",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "78",
+      "contCode": "GM",
+      "contName": "Gambia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "79",
+      "contCode": "GE",
+      "contName": "Georgia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "80",
+      "contCode": "DE",
+      "contName": "Germany",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "81",
+      "contCode": "GH",
+      "contName": "Ghana",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "82",
+      "contCode": "GI",
+      "contName": "Gibraltar",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "83",
+      "contCode": "GK",
+      "contName": "Guernsey",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "84",
+      "contCode": "GR",
+      "contName": "Greece",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "85",
+      "contCode": "GL",
+      "contName": "Greenland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "86",
+      "contCode": "GD",
+      "contName": "Grenada",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "87",
+      "contCode": "GP",
+      "contName": "Guadeloupe",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "88",
+      "contCode": "GU",
+      "contName": "Guam",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "89",
+      "contCode": "GT",
+      "contName": "Guatemala",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "90",
+      "contCode": "GN",
+      "contName": "Guinea",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "91",
+      "contCode": "GW",
+      "contName": "Guinea-Bissau",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "92",
+      "contCode": "GY",
+      "contName": "Guyana",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "93",
+      "contCode": "HT",
+      "contName": "Haiti",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "94",
+      "contCode": "HM",
+      "contName": "Heard and Mc Donald Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "95",
+      "contCode": "HN",
+      "contName": "Honduras",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "96",
+      "contCode": "HK",
+      "contName": "Hong Kong",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "97",
+      "contCode": "HU",
+      "contName": "Hungary",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "98",
+      "contCode": "IS",
+      "contName": "Iceland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "99",
+      "contCode": "IN",
+      "contName": "India",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "100",
+      "contCode": "IM",
+      "contName": "Isle of Man",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "101",
+      "contCode": "ID",
+      "contName": "Indonesia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "102",
+      "contCode": "IR",
+      "contName": "Iran (Islamic Republic of)",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "103",
+      "contCode": "IQ",
+      "contName": "Iraq",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "104",
+      "contCode": "IE",
+      "contName": "Ireland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "105",
+      "contCode": "IL",
+      "contName": "Israel",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "106",
+      "contCode": "IT",
+      "contName": "Italy",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "107",
+      "contCode": "CI",
+      "contName": "Ivory Coast",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "108",
+      "contCode": "JE",
+      "contName": "Jersey",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "109",
+      "contCode": "JM",
+      "contName": "Jamaica",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "110",
+      "contCode": "JP",
+      "contName": "Japan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "111",
+      "contCode": "JO",
+      "contName": "Jordan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "112",
+      "contCode": "KZ",
+      "contName": "Kazakhstan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "113",
+      "contCode": "KE",
+      "contName": "Kenya",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "114",
+      "contCode": "KI",
+      "contName": "Kiribati",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "115",
+      "contCode": "KP",
+      "contName": "Korea, Democratic People's Republic of",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "116",
+      "contCode": "KR",
+      "contName": "Korea, Republic of",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "117",
+      "contCode": "XK",
+      "contName": "Kosovo",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "118",
+      "contCode": "KW",
+      "contName": "Kuwait",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "119",
+      "contCode": "KG",
+      "contName": "Kyrgyzstan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "120",
+      "contCode": "LA",
+      "contName": "Lao People's Democratic Republic",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "121",
+      "contCode": "LV",
+      "contName": "Latvia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "122",
+      "contCode": "LB",
+      "contName": "Lebanon",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "123",
+      "contCode": "LS",
+      "contName": "Lesotho",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "124",
+      "contCode": "LR",
+      "contName": "Liberia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "125",
+      "contCode": "LY",
+      "contName": "Libyan Arab Jamahiriya",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "126",
+      "contCode": "LI",
+      "contName": "Liechtenstein",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "127",
+      "contCode": "LT",
+      "contName": "Lithuania",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "128",
+      "contCode": "LU",
+      "contName": "Luxembourg",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "129",
+      "contCode": "MO",
+      "contName": "Macau",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "130",
+      "contCode": "MK",
+      "contName": "Macedonia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "131",
+      "contCode": "MG",
+      "contName": "Madagascar",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "132",
+      "contCode": "MW",
+      "contName": "Malawi",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "133",
+      "contCode": "MY",
+      "contName": "Malaysia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "134",
+      "contCode": "MV",
+      "contName": "Maldives",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "135",
+      "contCode": "ML",
+      "contName": "Mali",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "136",
+      "contCode": "MT",
+      "contName": "Malta",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "137",
+      "contCode": "MH",
+      "contName": "Marshall Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "138",
+      "contCode": "MQ",
+      "contName": "Martinique",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "139",
+      "contCode": "MR",
+      "contName": "Mauritania",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "140",
+      "contCode": "MU",
+      "contName": "Mauritius",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "141",
+      "contCode": "TY",
+      "contName": "Mayotte",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "142",
+      "contCode": "MX",
+      "contName": "Mexico",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "143",
+      "contCode": "FM",
+      "contName": "Micronesia, Federated States of",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "144",
+      "contCode": "MD",
+      "contName": "Moldova, Republic of",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "145",
+      "contCode": "MC",
+      "contName": "Monaco",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "146",
+      "contCode": "MN",
+      "contName": "Mongolia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "147",
+      "contCode": "ME",
+      "contName": "Montenegro",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "148",
+      "contCode": "MS",
+      "contName": "Montserrat",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "149",
+      "contCode": "MA",
+      "contName": "Morocco",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "150",
+      "contCode": "MZ",
+      "contName": "Mozambique",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "151",
+      "contCode": "MM",
+      "contName": "Myanmar",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "152",
+      "contCode": "NA",
+      "contName": "Namibia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "153",
+      "contCode": "NR",
+      "contName": "Nauru",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "154",
+      "contCode": "NP",
+      "contName": "Nepal",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "155",
+      "contCode": "NL",
+      "contName": "Netherlands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "156",
+      "contCode": "AN",
+      "contName": "Netherlands Antilles",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "157",
+      "contCode": "NC",
+      "contName": "New Caledonia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "158",
+      "contCode": "NZ",
+      "contName": "New Zealand",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "159",
+      "contCode": "NI",
+      "contName": "Nicaragua",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "160",
+      "contCode": "NE",
+      "contName": "Niger",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "161",
+      "contCode": "NG",
+      "contName": "Nigeria",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "162",
+      "contCode": "NU",
+      "contName": "Niue",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "163",
+      "contCode": "NF",
+      "contName": "Norfolk Island",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "164",
+      "contCode": "MP",
+      "contName": "Northern Mariana Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "165",
+      "contCode": "NO",
+      "contName": "Norway",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "166",
+      "contCode": "OM",
+      "contName": "Oman",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "167",
+      "contCode": "PK",
+      "contName": "Pakistan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "168",
+      "contCode": "PW",
+      "contName": "Palau",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "169",
+      "contCode": "PS",
+      "contName": "Palestine",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "170",
+      "contCode": "PA",
+      "contName": "Panama",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "171",
+      "contCode": "PG",
+      "contName": "Papua New Guinea",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "172",
+      "contCode": "PY",
+      "contName": "Paraguay",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "173",
+      "contCode": "PE",
+      "contName": "Peru",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "174",
+      "contCode": "PH",
+      "contName": "Philippines",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "175",
+      "contCode": "PN",
+      "contName": "Pitcairn",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "176",
+      "contCode": "PL",
+      "contName": "Poland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "177",
+      "contCode": "PT",
+      "contName": "Portugal",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "178",
+      "contCode": "PR",
+      "contName": "Puerto Rico",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "179",
+      "contCode": "QA",
+      "contName": "Qatar",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "180",
+      "contCode": "RE",
+      "contName": "Reunion",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "181",
+      "contCode": "RO",
+      "contName": "Romania",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "182",
+      "contCode": "RU",
+      "contName": "Russian Federation",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "183",
+      "contCode": "RW",
+      "contName": "Rwanda",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "184",
+      "contCode": "KN",
+      "contName": "Saint Kitts and Nevis",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "185",
+      "contCode": "LC",
+      "contName": "Saint Lucia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "186",
+      "contCode": "VC",
+      "contName": "Saint Vincent and the Grenadines",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "187",
+      "contCode": "WS",
+      "contName": "Samoa",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "188",
+      "contCode": "SM",
+      "contName": "San Marino",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "189",
+      "contCode": "ST",
+      "contName": "Sao Tome and Principe",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "190",
+      "contCode": "SA",
+      "contName": "Saudi Arabia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "191",
+      "contCode": "SN",
+      "contName": "Senegal",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "192",
+      "contCode": "RS",
+      "contName": "Serbia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "193",
+      "contCode": "SC",
+      "contName": "Seychelles",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "194",
+      "contCode": "SL",
+      "contName": "Sierra Leone",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "195",
+      "contCode": "SG",
+      "contName": "Singapore",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "196",
+      "contCode": "SK",
+      "contName": "Slovakia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "197",
+      "contCode": "SI",
+      "contName": "Slovenia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "198",
+      "contCode": "SB",
+      "contName": "Solomon Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "199",
+      "contCode": "SO",
+      "contName": "Somalia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "200",
+      "contCode": "ZA",
+      "contName": "South Africa",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "201",
+      "contCode": "GS",
+      "contName": "South Georgia South Sandwich Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "202",
+      "contCode": "ES",
+      "contName": "Spain",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "203",
+      "contCode": "LK",
+      "contName": "Sri Lanka",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "204",
+      "contCode": "SH",
+      "contName": "St. Helena",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "205",
+      "contCode": "PM",
+      "contName": "St. Pierre and Miquelon",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "206",
+      "contCode": "SD",
+      "contName": "Sudan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "207",
+      "contCode": "SR",
+      "contName": "Suriname",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "208",
+      "contCode": "SJ",
+      "contName": "Svalbard and Jan Mayen Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "209",
+      "contCode": "SZ",
+      "contName": "Swaziland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "210",
+      "contCode": "SE",
+      "contName": "Sweden",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "211",
+      "contCode": "CH",
+      "contName": "Switzerland",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "212",
+      "contCode": "SY",
+      "contName": "Syrian Arab Republic",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "213",
+      "contCode": "TW",
+      "contName": "Taiwan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "214",
+      "contCode": "TJ",
+      "contName": "Tajikistan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "215",
+      "contCode": "TZ",
+      "contName": "Tanzania, United Republic of",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "216",
+      "contCode": "TH",
+      "contName": "Thailand",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "217",
+      "contCode": "TG",
+      "contName": "Togo",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "218",
+      "contCode": "TK",
+      "contName": "Tokelau",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "219",
+      "contCode": "TO",
+      "contName": "Tonga",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "220",
+      "contCode": "TT",
+      "contName": "Trinidad and Tobago",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "221",
+      "contCode": "TN",
+      "contName": "Tunisia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "222",
+      "contCode": "TR",
+      "contName": "Turkey",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "223",
+      "contCode": "TM",
+      "contName": "Turkmenistan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "224",
+      "contCode": "TC",
+      "contName": "Turks and Caicos Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "225",
+      "contCode": "TV",
+      "contName": "Tuvalu",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "226",
+      "contCode": "UG",
+      "contName": "Uganda",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "227",
+      "contCode": "UA",
+      "contName": "Ukraine",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "228",
+      "contCode": "AE",
+      "contName": "United Arab Emirates",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "229",
+      "contCode": "GB",
+      "contName": "United Kingdom",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "230",
+      "contCode": "US",
+      "contName": "United States",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "231",
+      "contCode": "UM",
+      "contName": "United States minor outlying islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "232",
+      "contCode": "UY",
+      "contName": "Uruguay",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "233",
+      "contCode": "UZ",
+      "contName": "Uzbekistan",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "234",
+      "contCode": "VU",
+      "contName": "Vanuatu",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "235",
+      "contCode": "VA",
+      "contName": "Vatican City State",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "236",
+      "contCode": "VE",
+      "contName": "Venezuela",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "237",
+      "contCode": "VN",
+      "contName": "Vietnam",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "238",
+      "contCode": "VG",
+      "contName": "Virgin Islands (British)",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "239",
+      "contCode": "VI",
+      "contName": "Virgin Islands (U.S.)",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "240",
+      "contCode": "WF",
+      "contName": "Wallis and Futuna Islands",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "241",
+      "contCode": "EH",
+      "contName": "Western Sahara",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "242",
+      "contCode": "YE",
+      "contName": "Yemen",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "243",
+      "contCode": "ZR",
+      "contName": "Zaire",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "244",
+      "contCode": "ZM",
+      "contName": "Zambia",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "245",
+      "contCode": "ZW",
+      "contName": "Zimbabwe",
+      "contDailCode": null,
+      "isActive": "1"
+    },
+    {
+      "contID": "246",
+      "contCode": "SL",
+      "contName": "Somaliland",
+      "contDailCode": null,
+      "isActive": "1"
+    }
+  ]
+}
