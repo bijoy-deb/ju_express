@@ -89,6 +89,24 @@ Specify platform:
 ---
 
 ## Project Structure
+
+\`\`\`
+lib/
+  ├── main.dart                     # Application entry point
+  ├── core/                         # Core utilities, constants, and themes
+  ├── features/                     # Organized by app feature modules
+  │   ├── auth/                     # User authentication (login, signup)
+  │   ├── ticket/                   # Ticket purchase, download, cancellation
+  │   └── profile/                  # User profile and account management
+  ├── data/                         # Data sources and repositories
+  │   ├── models/                   # Data models (e.g., Ticket, User)
+  │   ├── repositories/             # Repository interfaces and implementations
+  └── blocs/                        # BLoC components for state management
+      ├── auth_bloc/                # BLoC for authentication
+      ├── ticket_bloc/              # BLoC for ticket management
+      └── profile_bloc/             # BLoC for user profile management
+\`\`\`
+
 \`\`\`
 lib/
   ├── main.dart                     # Application entry point
