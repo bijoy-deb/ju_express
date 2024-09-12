@@ -109,8 +109,6 @@ lib/
       │  └── bloc/                  # State management
       │  └── UI/                    # UI (Screens) 
       ├── utils/                    # Utilities, constants
-  
-      
 \`\`\`
 
 ---
