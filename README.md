@@ -90,24 +90,26 @@ Specify platform:
 
 ## Project Structure
 
+
+
 \`\`\`
-lib/<br/>
-  ├── main.dart                     # Application entry point<br/>
+lib/
+  ├── main.dart                     # Application entry point
   ├─  config/                       # Environment configuration
-  ├── core/                         # Api client, error, network setup
+  ├── core/                         # API client, error, network setup
   ├─  di/                           # Dependency Injection setup
-  ├─ domain/                        # Use case setup
-  ├─ env/                           # Types of Environment setup
-  ├─ l10n/                          # Multiple Language files
-  ├─ route/                         # Page route setup
-  ├─ source/                        # model, data, UI
+  ├─  domain/                       # Use case setup, GraphQL queries, mutations
+  ├─  env/                          # Types of environment setup
+  ├─  l10n/                         # Multiple language files (Localization)
+  ├─  route/                        # Page route setup
+  ├─  source/                       # Model, data, UI layers
       ├── data/                     # Data sources and repositories
       │  ├── models/                # Data models 
-      │  ├── repositories/          # Repository interfaces and implementations
+      │  ├── repositories/          # Repository interfaces and implementations, GraphQL client interaction
       ├── presentation/             # UI, state, and widget
-      │  └── bloc/                  # State management
-      │  └── UI/                    # UI (Screens) 
-      ├── utils/                    # Utilities, constants
+      │  └── bloc/                  # State management using BLoC
+      │  └── UI/                    # UI (Screens, Widgets)
+      ├── utils/                    # Utilities, constants, helpers
 \`\`\`
 
 ---
