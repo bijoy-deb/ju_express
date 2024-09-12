@@ -90,44 +90,8 @@ Specify platform:
 
 ## Project Structure
 
+
 <pre>
-lib/
-  ├── main.dart                     # Application entry point
-  ├── core/                         # Core utilities, constants, and themes
-  ├── features/                     # Organized by app feature modules
-  │   ├── auth/                     # User authentication (login, signup)
-  │   ├── ticket/                   # Ticket purchase, download, cancellation
-  │   └── profile/                  # User profile and account management
-  ├── data/                         # Data sources and repositories
-  │   ├── models/                   # Data models (e.g., Ticket, User)
-  │   ├── repositories/             # Repository interfaces and implementations
-  └── blocs/                        # BLoC components for state management
-      ├── auth_bloc/                # BLoC for authentication
-      ├── ticket_bloc/              # BLoC for ticket management
-      └── profile_bloc/             # BLoC for user profile management
-</pre>
-
-\`\`\`
-lib/
-  ├── main.dart                     # Application entry point
-  ├── config/                       # Environment configuration
-  ├── core/                         # API client, error, network setup
-  ├── di/                           # Dependency Injection setup
-  ├── domain/                       # Use case setup
-  ├── env/                          # Types of environment setup
-  ├── l10n/                         # Multiple language files (Localization)
-  ├── route/                        # Page route setup
-  ├── source/                       # Model, data, UI layers
-      ├── data/                     # Data sources and repositories
-      │   ├── models/               # Data models 
-      │   ├── repositories/         # Repository interfaces and implementations
-      ├── presentation/             # UI, state, and widget
-      │   ├── bloc/                 # State management using BLoC
-      │   └── ui/                   # UI (Screens, Widgets)
-      ├── utils/                    # Utilities, constants, helpers
-\`\`\`
-
-\`\`\`
 lib/
   ├── main.dart                     # Application entry point
   ├─  config/                       # Environment configuration
@@ -145,8 +109,7 @@ lib/
       │  └── bloc/                  # State management using BLoC
       │  └── UI/                    # UI (Screens, Widgets)
       ├── utils/                    # Utilities, constants, helpers
-\`\`\`
-
+</pre>
 ---
 
 
