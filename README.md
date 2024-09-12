@@ -43,7 +43,6 @@ BLoC (Business Logic Component) is used for managing state across the app, ensur
 - Flutter SDK: 3.22.1
 - Dart: >= 3.4.1
 - IDE: Android Studio 
-- Project Management: Azure Devops
 
 ---
 
