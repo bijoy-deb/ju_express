@@ -89,6 +89,25 @@ Specify platform:
 ---
 
 ## Project Structure
+\`\`\`
+lib/
+  ├── main.dart                     # Application entry point
+  ├── config/                       # Environment configuration
+  ├── core/                         # API client, error, network setup
+  ├── di/                           # Dependency Injection setup
+  ├── domain/                       # Use case setup
+  ├── env/                          # Types of environment setup
+  ├── l10n/                         # Multiple language files (Localization)
+  ├── route/                        # Page route setup
+  ├── source/                       # Model, data, UI layers
+      ├── data/                     # Data sources and repositories
+      │   ├── models/               # Data models 
+      │   ├── repositories/         # Repository interfaces and implementations
+      ├── presentation/             # UI, state, and widget
+      │   ├── bloc/                 # State management using BLoC
+      │   └── ui/                   # UI (Screens, Widgets)
+      ├── utils/                    # Utilities, constants, helpers
+\`\`\`
 
 \`\`\`
 lib/
