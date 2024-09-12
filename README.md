@@ -90,7 +90,7 @@ Specify platform:
 
 ## Project Structure
 
-\`\`\`
+
 lib/
   ├── main.dart                     # Application entry point
   ├── core/                         # Core utilities, constants, and themes
@@ -105,7 +105,7 @@ lib/
       ├── auth_bloc/                # BLoC for authentication
       ├── ticket_bloc/              # BLoC for ticket management
       └── profile_bloc/             # BLoC for user profile management
-\`\`\`
+
 
 \`\`\`
 lib/
