@@ -122,4 +122,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries, feel free to contact [Bijoy Chandra Debnath] at [bijoycsepu@gmail.com].
+For any inquiries, feel free to contact Bijoy Chandra Debnath at bijoycsepu@gmail.com
