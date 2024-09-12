@@ -13,8 +13,7 @@ JU Express is a mobile application for booking bus tickets. The app offers users
 4. [Installation](#installation)
 5. [Running the App](#running-the-app)
 6. [Project Structure](#project-structure)
-7. [Contributing](#contributing)
-8. [License](#license)
+7. [License](#license)
 
 ---
 
@@ -92,8 +91,8 @@ Specify platform:
 ## Project Structure
 
 \`\`\`
-lib/
-  ├── main.dart                     # Application entry point
+lib/<br/>
+  ├── main.dart                     # Application entry point<br/>
   ├─  config/                       # Environment configuration
   ├── core/                         # Api client, error, network setup
   ├─  di/                           # Dependency Injection setup
