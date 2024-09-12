@@ -1,16 +1,128 @@
-# ju_express
 
-A Bus ticket booking application
+# JU Express - Bus Ticket Booking Application
 
-## Getting Started
+JU Express is a mobile application for booking bus tickets. The app offers users the ability to purchase tickets, download tickets, request ticket cancellations, and manage their account through secure login. It is built using Flutter with Clean Code architecture and BLoC for state management.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Table of Contents
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. [Features](#features)
+2. [Architecture](#architecture)
+3. [Requirements](#requirements)
+4. [Installation](#installation)
+5. [Running the App](#running-the-app)
+6. [Project Structure](#project-structure)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Features
+
+- **Purchase Tickets:** Users can browse available bus routes and purchase tickets.
+- **Download Tickets:** After booking, users can download their tickets for offline access.
+- **Ticket Cancellation:** Users can request to cancel their tickets and get a refund.
+- **User Login:** Secure user login and account management system.
+
+---
+
+## Architecture
+
+JU Express follows the Clean Code Architecture principles. The app is organized into distinct layers to separate concerns:
+
+- **Presentation Layer:** Handles the user interface and state management.
+- **Domain Layer:** Contains business logic, entities, and use cases.
+- **Data Layer:** Manages data sources, including API services and local storage.
+
+BLoC (Business Logic Component) is used for managing state across the app, ensuring a clean separation of UI and business logic.
+
+---
+
+## Requirements
+
+- Flutter SDK: 3.22.1
+- Dart: >= 3.4.1
+- IDE: Android Studio 
+- Project Management: Azure Devops
+
+---
+
+## Installation
+
+### 1. Clone the repository
+
+\`\`\`bash
+git clone https://github.com/bijoy-deb/ju_express.git
+\`\`\`
+
+### 2. Navigate to the project directory
+
+\`\`\`bash
+cd JUExpress
+\`\`\`
+
+### 3. Install dependencies
+
+\`\`\`bash
+flutter pub get
+\`\`\`
+
+### 4. Configure environment variables
+
+Create two environments prod and beta. 
+
+---
+
+## Running the App
+
+To run the app on an emulator or connected device:
+
+\`\`\`bash
+flutter run
+\`\`\`
+
+Specify platform:
+
+- Android: \`flutter run -d android\`
+- iOS: \`flutter run -d ios\`
+
+---
+
+## Project Structure
+
+\`\`\`
+lib/
+  ├── main.dart                     # Application entry point
+  ├─  config/                       # Environment configuration
+  ├── core/                         # Api client, error, network setup
+  ├─  di/                           # Dependency Injection setup
+  ├─ domain/                        # Use case setup
+  ├─ env/                           # Types of Environment setup
+  ├─ l10n/                          # Multiple Language files
+  ├─ route/                         # Page route setup
+  ├─ source/                        # model, data, UI
+      ├── data/                     # Data sources and repositories
+      │  ├── models/                # Data models 
+      │  ├── repositories/          # Repository interfaces and implementations
+      ├── presentation/             # UI, state, and widget
+      │  └── bloc/                  # State management
+      │  └── UI/                    # UI (Screens) 
+      ├── utils/                    # Utilities, constants
+  
+      
+\`\`\`
+
+---
+
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+For any inquiries, feel free to contact [Bijoy Chandra Debnath] at [bijoycsepu@gmail.com].
