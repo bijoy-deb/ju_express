@@ -90,8 +90,6 @@ Specify platform:
 
 ## Project Structure
 
-
-
 \`\`\`
 lib/
   ├── main.dart                     # Application entry point
