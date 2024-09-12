@@ -50,7 +50,7 @@ BLoC (Business Logic Component) is used for managing state across the app, ensur
 
 ### 1. Clone the repository
 
-\`\`\`bash
+\`\`\`copy
 git clone https://github.com/bijoy-deb/ju_express.git
 \`\`\`
 
