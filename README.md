@@ -50,21 +50,21 @@ BLoC (Business Logic Component) is used for managing state across the app, ensur
 
 ### 1. Clone the repository
 
-\`\`\`copy
+```bash
 git clone https://github.com/bijoy-deb/ju_express.git
-\`\`\`
+```
 
 ### 2. Navigate to the project directory
 
-\`\`\`bash
-cd JUExpress
-\`\`\`
+```bash
+cd ju_express
+```
 
 ### 3. Install dependencies
 
-\`\`\`bash
+```bash
 flutter pub get
-\`\`\`
+```
 
 ### 4. Configure environment variables
 
@@ -76,9 +76,9 @@ Create two environments prod and beta.
 
 To run the app on an emulator or connected device:
 
-\`\`\`bash
+```bash
 flutter run
-\`\`\`
+```
 
 Specify platform:
 
