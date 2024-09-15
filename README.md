@@ -42,7 +42,7 @@ BLoC (Business Logic Component) is used for managing state across the app, ensur
 
 - Flutter SDK: 3.22.1
 - Dart: >= 3.4.1
-- IDE: Android Studio
+- IDE: Android Studio 
 
 ---
 
@@ -68,7 +68,7 @@ flutter pub get
 
 ### 4. Configure environment variables
 
-Create two environments prod and beta.
+Create two environments prod and beta. 
 
 ---
 
