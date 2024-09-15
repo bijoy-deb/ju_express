@@ -6,7 +6,6 @@ import 'package:ju_express/source/presentation/ui/passenger_info/widget/passenge
 import '../../../../data/model/balance/balance_res.dart';
 import '../../../../data/model/passenger_info/passenger_info_args.dart';
 import '../../../../utils/helper_functions.dart';
-import 'bus_card_layout.dart';
 
 class PaymentDetails extends StatefulWidget {
   const PaymentDetails(
@@ -14,14 +13,12 @@ class PaymentDetails extends StatefulWidget {
       required this.infoArgs,
       required this.voucherApplied,
       required this.couponCodeRes,
-      required this.busCardLayoutController,
       Key? key})
       : super(key: key);
   final PassengerInfoArgs infoArgs;
   final List<PassengerInputLayoutController> controller;
   final bool voucherApplied;
   final CouponCodeRes couponCodeRes;
-  final BusCardLayoutController busCardLayoutController;
 
   @override
   State<PaymentDetails> createState() => _PaymentDetailsState();
@@ -50,8 +47,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   @override
   Widget build(BuildContext context) {
     subTotal = getSubtotal();
-    customerDiscount = calculateCustomerDiscount(
-        widget.busCardLayoutController.balanceRes, subTotal - discount);
+
 
     processFee = widget.infoArgs.processFeeType == 1
         ? (widget.infoArgs.processFee / 100) * subTotal
@@ -63,7 +59,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
       discount = calculateSeatDiscount(widget.infoArgs, subTotal);
     }
     widget.infoArgs.totalPayable = subTotal + processFee - discount;
-    widget.busCardLayoutController.totalPayable = totalPayable;
+
     setState(() {});
 
     return Column(
@@ -83,35 +79,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
               color: Colors.black,
               thickness: 1,
             ),
-            Row(
-              children: [
-                SizedBox(
-                    width: 120,
-                    child: Text(
-                      AppLocalizations.of(context)!.balance,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w700),
-                    )),
-                Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: const Text(
-                      ":",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                    )),
-                Expanded(
-                    child: Text(
-                  withCurrencyFormat(
-                      widget.busCardLayoutController.balanceRes?.customer
-                              ?.balance ??
-                          "0.0",
-                      format: true,
-                      symbol: true),
-                  style: const TextStyle(fontSize: 15),
-                )),
-              ],
-            ),
-            const SizedBox(height: 10),
+
             Row(
               children: [
                 SizedBox(

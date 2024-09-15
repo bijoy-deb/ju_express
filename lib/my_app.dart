@@ -74,6 +74,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
               fontFamily: 'CenturyGothic',
               colorSchemeSeed: prefs.color,
+              brightness: Brightness.light,
               appBarTheme: const AppBarTheme(
                 iconTheme: IconThemeData(color: Colors.white), // 1
               ),

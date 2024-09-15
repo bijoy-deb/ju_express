@@ -27,153 +27,24 @@ import 'Constants.dart';
 import 'app_images.dart';
 import 'notification_service.dart';
 
-recordError({required dynamic error, required StackTrace stack}) {
+// Error Reporting
+void recordError({required dynamic error, required StackTrace stack}) {
   FirebaseCrashlytics.instance.recordError(error, stack);
 }
 
-String getGenderFromInt(type) {
-  if (type.toString() == "1") {
-    return "Male";
-  } else if (type.toString() == "2") {
-    return "Female";
-  } else {
-    return "N/A";
+// Validators
+class FormValidator {
+  static String? validateEmail2(String email) {
+    if (email.isEmpty) return "Please enter an email!";
+    String pattern2 =
+        r'^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$';
+    RegExp regExp = RegExp(pattern2);
+    return !regExp.hasMatch(email) ? "Please enter a valid email" : null;
   }
-}
-
-String getLicence() {
-  if (Platform.isAndroid) {
-    return "e5a2b7b6e575bcec43553db853d427fd";
-  } else {
-    return "e5a2b7b6e575bcec43553db853d427fd";
-  }
-}
-
-Widget wrapWithContainer({required Widget child}) {
-  return Container(
-    width: double.infinity,
-    margin: const EdgeInsets.only(top: 5, bottom: 5, left: 0, right: 0),
-    padding: const EdgeInsets.all(8),
-    decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
-        boxShadow: const [BoxShadow(blurRadius: 5, color: Colors.black12)]),
-    child: child,
-  );
-}
-
-void showToast(String msg, {bool error = false, bool success = false}) {
-  Fluttertoast.cancel();
-  Fluttertoast.showToast(
-    msg: msg,
-    toastLength: Toast.LENGTH_LONG,
-    gravity: ToastGravity.BOTTOM,
-    timeInSecForIosWeb: 1,
-    backgroundColor: error
-        ? Colors.red
-        : success
-        ? Colors.green
-        : Colors.white,
-    textColor: !error && !success ? Colors.black : Colors.white,
-    fontSize: 18.0,
-  );
-}
-
-Future<bool?> handleStoragePermission() async {
-  PermissionStatus status = await Permission.storage.request();
-  if (status.isPermanentlyDenied) {
-    return null;
-  } else if (status.isDenied) {
-    status = await Permission.storage.request();
-    if (status.isDenied) {
-      return false;
-    }
-  }
-  return true;
-}
-
-showPermissionDialog(BuildContext context) {
-  showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          insetPadding: const EdgeInsets.symmetric(horizontal: 12),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 150,
-                child: Image.asset(
-                  AppImages.logo,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                AppLocalizations.of(context)!.storage_permission_denied,
-                textAlign: TextAlign.justify,
-                style: const TextStyle(fontSize: 16),
-              ),
-            ],
-          ),
-          actionsAlignment: MainAxisAlignment.center,
-          actions: [
-            ElevatedButton(
-              child: Text(
-                AppLocalizations.of(context)!.open_settings,
-              ),
-              onPressed: () {
-                openAppSettings();
-              },
-            )
-          ],
-        );
-      });
-}
-
-Future<DateTime?> pickDate(
-    {required DateTime selected,
-      required BuildContext context,
-      DateTime? start}) async {
-  final DateTime? picked = await showDatePicker(
-    context: context,
-    initialDate: selected,
-    firstDate: start ?? DateTime.now(),
-    lastDate: (start ?? DateTime.now()).add(
-      const Duration(days: 365),
-    ),
-    initialEntryMode: DatePickerEntryMode.calendarOnly,
-  );
-  return picked;
-}
-
-String withCurrencyFormat(dynamic value,
-    {bool format = false, bool symbol = false}) {
-  if (value is! String) {
-    if (format && symbol) {
-      return "${Constants.currency} ${NumberFormat("#,##0.00", "en_US").format(value)}";
-    } else if (format) {
-      return NumberFormat("#,##0.00", "en_US").format(value);
-    }
-  }
-  return "${Constants.currency} $value";
-}
-
-bool isLeapYear(int year) =>
-    (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
-
-int daysInMonth(int year, int month) {
-  const daysInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  return (month == DateTime.february && isLeapYear(year))
-      ? 29
-      : daysInMonth[month];
 }
 
 bool validateEmail(String value) {
+  if (value.isEmpty) return false;
   String pattern = r"^[^@]+@[^@]+\.[^@\.]{2,}$";
   RegExp regExp = RegExp(pattern);
   return regExp.hasMatch(value);
@@ -186,7 +57,255 @@ bool validatePassword(String value) {
   return regExp.hasMatch(value);
 }
 
-downloadTicket(TicketDetails ticketDetails, BuildContext context) async {
+// Gender Conversion
+String getGenderFromInt(type) {
+  switch (type.toString()) {
+    case "1":
+      return "Male";
+    case "2":
+      return "Female";
+    default:
+      return "N/A";
+  }
+}
+
+// License Handling
+String getLicence() {
+  return "374df6cef9bcf622f3f2630076c76376";
+}
+
+// Utility Widgets
+Widget wrapWithContainer({required Widget child}) {
+  return Container(
+    width: double.infinity,
+    margin: const EdgeInsets.symmetric(vertical: 5),
+    padding: const EdgeInsets.all(8),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [BoxShadow(blurRadius: 5, color: Colors.black12)],
+    ),
+    child: child,
+  );
+}
+
+RichText asteriskSignMethod({required bool isRequired, required String label}) {
+  return RichText(
+    text: TextSpan(
+      children: [
+        TextSpan(
+          text: label,
+          style: const TextStyle(color: Colors.black),
+        ),
+        if (isRequired)
+          const TextSpan(
+            text: ' *',
+            style: TextStyle(color: Colors.red),
+          ),
+      ],
+    ),
+  );
+}
+
+Widget showMobileNumber({
+  required BuildContext context,
+  required String mobile,
+  double fontSize = 15,
+  Color color = Colors.black,
+  TextDecoration textDecoration = TextDecoration.underline,
+  FontWeight fontWeight = FontWeight.w400,
+}) {
+  return GestureDetector(
+    onTap: () {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            surfaceTintColor: Colors.white,
+            title: Text(mobile),
+            actions: [
+              TextButton(
+                onPressed: () async {
+                  Uri uri = Uri(scheme: 'tel', path: mobile);
+                  if (await canLaunchUrl(uri)) {
+                    launchUrl(uri);
+                  } else {
+                    showToast(AppLocalizations.of(context)!.something_went_wrong);
+                  }
+                },
+                child: Text(AppLocalizations.of(context)!.call),
+              ),
+              TextButton(
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: mobile));
+                  showToast(AppLocalizations.of(context)!.copied, success: true);
+                  Navigator.pop(context);
+                },
+                child: Text(AppLocalizations.of(context)!.copy),
+              ),
+            ],
+          );
+        },
+      );
+    },
+    child: Text(
+      mobile,
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+        height: 1.35,
+        decoration: textDecoration,
+        decorationColor: Colors.blue,
+      ),
+    ),
+  );
+}
+
+// Currency Formatting
+String withCurrencyFormat(dynamic value, {bool format = false, bool symbol = false}) {
+  if (value is! String) {
+    if (format && symbol) {
+      return "${Constants.currency} ${NumberFormat("#,##0.00", "en_US").format(value)}";
+    } else if (format) {
+      return NumberFormat("#,##0.00", "en_US").format(value);
+    }
+  }
+  return "${Constants.currency} $value";
+}
+
+// Date Utilities
+bool isLeapYear(int year) =>
+    (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
+
+int daysInMonth(int year, int month) {
+  const daysInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return (month == DateTime.february && isLeapYear(year)) ? 29 : daysInMonth[month];
+}
+
+Future<DateTime?> pickDate({
+  required DateTime selected,
+  required BuildContext context,
+  DateTime? start,
+}) async {
+  return await showDatePicker(
+    context: context,
+    initialDate: selected,
+    firstDate: start ?? DateTime.now(),
+    lastDate: (start ?? DateTime.now()).add(const Duration(days: 365)),
+    initialEntryMode: DatePickerEntryMode.calendarOnly,
+  );
+}
+
+// Seat Pricing
+double getSeatPrice({required String tftID, required FareDetails fareDetails}) {
+  return fareDetails.fare!.firstWhere(
+        (element) => element.id == int.parse(tftID),
+    orElse: () => fareDetails.fare!.first,
+  ).currencyFare!;
+}
+
+// Permissions
+Future<bool?> handleStoragePermission() async {
+  PermissionStatus status = await Permission.storage.request();
+  if (status.isPermanentlyDenied) {
+    return null;
+  } else if (status.isDenied) {
+    status = await Permission.storage.request();
+    return status.isDenied ? false : true;
+  }
+  return true;
+}
+
+void showPermissionDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        insetPadding: const EdgeInsets.symmetric(horizontal: 12),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 150,
+              child: Image.asset(AppImages.logo),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              AppLocalizations.of(context)!.storage_permission_denied,
+              textAlign: TextAlign.justify,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+        actionsAlignment: MainAxisAlignment.center,
+        actions: [
+          ElevatedButton(
+            child: Text(AppLocalizations.of(context)!.open_settings),
+            onPressed: openAppSettings,
+          ),
+        ],
+      );
+    },
+  );
+}
+
+// Toast Notifications
+void showToast(String msg, {bool error = false, bool success = false}) {
+  Fluttertoast.cancel();
+  Fluttertoast.showToast(
+    msg: msg,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: error ? Colors.red : success ? Colors.green : Colors.white,
+    textColor: (!error && !success) ? Colors.black : Colors.white,
+    fontSize: 18.0,
+  );
+}
+
+// Navigation
+void navigateToHome(BuildContext context) {
+  while (context.canPop()) {
+    context.pop();
+  }
+  context.pushReplacement(RoutePath.home);
+}
+
+// Page Transitions
+CustomTransitionPage createRoutePage({
+  required LocalKey pageKey,
+  required Widget widget,
+}) {
+  return CustomTransitionPage(
+    key: pageKey,
+    child: widget,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      return SlideTransition(position: animation.drive(tween), child: child);
+    },
+  );
+}
+
+Route createRoute(Widget widget) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => widget,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      return SlideTransition(position: animation.drive(tween), child: child);
+    },
+  );
+}
+
+// Download Ticket
+Future<void> downloadTicket(TicketDetails ticketDetails, BuildContext context) async {
   String path;
   Directory directory = Platform.isAndroid
       ? Directory('/storage/emulated/0/Download')
@@ -199,10 +318,10 @@ downloadTicket(TicketDetails ticketDetails, BuildContext context) async {
     savedDir.create();
   }
   path = localPath;
+
   if (Platform.isAndroid) {
     try {
       showToast(AppLocalizations.of(context)!.file_downloading);
-
       if (await AndroidDownloadManager.enqueue(
         downloadUrl: ticketDetails.pdfLink!,
         downloadPath: '/storage/emulated/0/Download',
@@ -211,16 +330,13 @@ downloadTicket(TicketDetails ticketDetails, BuildContext context) async {
           1) {
         showToast(AppLocalizations.of(context)!.file_downloaded, success: true);
       } else {
-        showToast(AppLocalizations.of(context)!.something_went_wrong,
-            error: true);
+        showToast(AppLocalizations.of(context)!.something_went_wrong, error: true);
       }
     } catch (e) {
-      showToast(AppLocalizations.of(context)!.something_went_wrong,
-          error: true);
+      showToast(AppLocalizations.of(context)!.something_went_wrong, error: true);
     }
   } else if (Platform.isIOS) {
-    String filePath =
-        "$path${Platform.pathSeparator}${ticketDetails.fileName!}";
+    String filePath = "$path${Platform.pathSeparator}${ticketDetails.fileName!}";
     Dio dio = Dio();
     showToast(AppLocalizations.of(context)!.file_downloading);
     try {
@@ -229,75 +345,23 @@ downloadTicket(TicketDetails ticketDetails, BuildContext context) async {
         filePath,
         onReceiveProgress: (received, total) {
           if (received == total) {
-            showToast(AppLocalizations.of(context)!.file_downloaded,
-                success: true);
+            showToast(AppLocalizations.of(context)!.file_downloaded, success: true);
             NotificationService().showLocalNotification(
-                id: Random().nextInt(100),
-                title: getIt<PackageInfo>().appName,
-                body:
-                "Your ticket has been downloaded. ${ticketDetails.rTitle} (${ticketDetails.diPnr}). Tap to View",
-                data: jsonEncode({"path": filePath}));
+              id: Random().nextInt(100),
+              title: getIt<PackageInfo>().appName,
+              body: "Your ticket has been downloaded. ${ticketDetails.rTitle} (${ticketDetails.diPnr}). Tap to View",
+              data: jsonEncode({"path": filePath}),
+            );
           }
         },
       );
     } catch (e) {
-      showToast(AppLocalizations.of(context)!.something_went_wrong,
-          error: true);
+      showToast(AppLocalizations.of(context)!.something_went_wrong, error: true);
     }
   }
 }
 
-CustomTransitionPage createRoutePage(
-    {required LocalKey pageKey, required Widget widget}) {
-  return CustomTransitionPage(
-    key: pageKey,
-    child: widget,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(1.0, 0.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
-}
-
-Route createRoute(Widget widget) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => widget,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
-}
-
-double getSeatPrice({required String tftID, required FareDetails fareDetails}) {
-  return fareDetails.fare!
-      .firstWhere((element) => element.id == int.parse(tftID),
-      orElse: () => fareDetails.fare!.first)
-      .currencyFare!;
-}
-
-bool isMobileNumber(String value) {
-  String pattern = r'^[0-9+-]+$';
-  RegExp regExp = RegExp(pattern);
-  return regExp.hasMatch(value);
-}
-
+// Logout
 Future<bool> logout() async {
   await getIt<AppSharedPrefs>().setAuthCode("");
   await getIt<AppSharedPrefs>().setVHash("");
@@ -306,6 +370,7 @@ Future<bool> logout() async {
   return true;
 }
 
+// Input Decoration
 InputDecoration customInputDecoration({
   String? labelText,
   String? hintText,
@@ -323,85 +388,9 @@ InputDecoration customInputDecoration({
   );
 }
 
-void navigateToHome(BuildContext context) {
-  while (context.canPop() == true) {
-    context.pop();
-  }
-  context.pushReplacement(RoutePath.home);
-}
-
-RichText asteriskSignMethod({required bool isRequired, required String label}) {
-  return RichText(
-    text: TextSpan(
-      children: [
-        TextSpan(
-          text: label,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        if (isRequired)
-          TextSpan(
-            text: ' *',
-            style: TextStyle(
-              color: Colors.red,
-            ),
-          ),
-      ],
-    ),
-  );
-}
-
-Widget showMobileNumber(
-    {required BuildContext context,
-      required String mobile,
-      double fontSize = 15,
-      Color color = Colors.black,
-      TextDecoration textDecoration = TextDecoration.underline,
-      FontWeight fontWeight = FontWeight.w400}) {
-  return GestureDetector(
-    onTap: () {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              surfaceTintColor: Colors.white,
-              title: Text(mobile),
-              actions: [
-                TextButton(
-                  onPressed: () async {
-                    Uri uri = Uri(scheme: 'tel', path: mobile);
-                    if (await canLaunchUrl(uri)) {
-                      launchUrl(uri);
-                    } else {
-                      showToast(
-                          AppLocalizations.of(context)!.something_went_wrong);
-                    }
-                  },
-                  child: Text(AppLocalizations.of(context)!.call),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Clipboard.setData(ClipboardData(text: mobile));
-                    showToast(AppLocalizations.of(context)!.copied,
-                        success: true);
-                    Navigator.pop(context);
-                  },
-                  child: Text(AppLocalizations.of(context)!.copy),
-                ),
-              ],
-            );
-          });
-    },
-    child: Text(
-      mobile,
-      style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          color: color,
-          height: 1.35,
-          decoration: textDecoration,
-          decorationColor: Colors.blue),
-    ),
-  );
+// Mobile Number Validation
+bool isMobileNumber(String value) {
+  String pattern = r'^[0-9+-]+$';
+  RegExp regExp = RegExp(pattern);
+  return regExp.hasMatch(value);
 }

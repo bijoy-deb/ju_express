@@ -15,7 +15,6 @@ import 'package:ju_express/source/presentation/ui/passenger_info/widget/bus_card
 import 'package:ju_express/source/presentation/ui/passenger_info/widget/invoice_input_layout.dart';
 import 'package:ju_express/source/presentation/ui/passenger_info/widget/passenger_input_layout.dart';
 import 'package:ju_express/source/presentation/ui/passenger_info/widget/payment_details.dart';
-import 'package:ju_express/source/presentation/ui/passenger_info/widget/trip_details.dart';
 import 'package:ju_express/source/utils/Constants.dart';
 import 'package:ju_express/source/utils/custom_extensions.dart';
 import 'package:ju_express/source/utils/helper_functions.dart';
@@ -311,19 +310,18 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                           ),
                         ),
                       ),
-                      wrapWithContainer(
-                          child: TripDetails(infoArgs: widget.infoArgs)),
-                      wrapWithContainer(
-                          child: BusCardLayout(
-                        busCardLayoutController: busCardLayoutController,
-                      )),
+                      // wrapWithContainer(
+                      //     child: TripDetails(infoArgs: widget.infoArgs)),
+                      // wrapWithContainer(
+                      //     child: BusCardLayout(
+                      //   busCardLayoutController: busCardLayoutController,
+                      // )),
 
                       wrapWithContainer(
                           child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           PaymentDetails(
-                            busCardLayoutController: busCardLayoutController,
                             infoArgs: widget.infoArgs,
                             controller: controller,
                             couponCodeRes: cuponCodeRes,
@@ -383,7 +381,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                                                                         .all(
                                                                         4.0),
                                                                 child: Text(
-                                                                  "$CuponCode",
+                                                                  CuponCode,
                                                                   style: const TextStyle(
                                                                       fontSize:
                                                                           16,

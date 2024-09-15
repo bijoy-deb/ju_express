@@ -21,6 +21,7 @@ import '../../../../di/injection.dart';
 import '../../../data/model/download_ticket/download_ticket_res.dart';
 import '../../../utils/app_images.dart';
 
+
 class DownloadTicketScreen extends StatefulWidget {
   const DownloadTicketScreen({Key? key}) : super(key: key);
 
@@ -42,6 +43,7 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
   bool isLoading = false;
   List<TicketDetails> ticketDetails = [];
   ExpansionTileController expansionTileController = ExpansionTileController();
+  bool _isExpanded = true;
   @override
   void initState() {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
@@ -97,8 +99,8 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                         initiallyExpanded: true,
                         controller: expansionTileController,
                         title: Text(
-                          "${AppLocalizations.of(context)!.download_ticket_msg}",
-                          style: TextStyle(fontSize: 17),
+                          AppLocalizations.of(context)!.download_ticket_msg,
+                          style: const TextStyle(fontSize: 17),
                         ),
                         tilePadding: EdgeInsets.zero,
                         shape: InputBorder.none,
@@ -113,14 +115,14 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 TextFormField(
                                   focusNode: pnrFocus,
                                   controller: pnr,
                                   autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
+                                  AutovalidateMode.onUserInteraction,
                                   validator: (value) {
                                     if (value == null || value.trim().isEmpty) {
                                       return AppLocalizations.of(context)!
@@ -129,11 +131,11 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                     return null;
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(
+                                    prefixIcon: const Icon(
                                         Icons.confirmation_number_outlined),
-                                    contentPadding: EdgeInsets.symmetric(
+                                    contentPadding: const EdgeInsets.symmetric(
                                         horizontal: 12, vertical: 15),
-                                    border: OutlineInputBorder(),
+                                    border: const OutlineInputBorder(),
                                     label: Text(AppLocalizations.of(context)!
                                         .pnr
                                         .toUpperCase()),
@@ -148,7 +150,7 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                   maxLength: maxPhoneLength,
                                   onChanged: _onChangeHandler,
                                   autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
+                                  AutovalidateMode.onUserInteraction,
                                   keyboardType: TextInputType.number,
                                   validator: (value) {
                                     if (value!.isEmpty) {
@@ -180,12 +182,12 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                             });
                                           },
                                           initialSelection:
-                                              Constants.countryCode,
+                                          Constants.countryCode,
                                           searchDecoration:
-                                              const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  contentPadding:
-                                                      EdgeInsets.all(3)),
+                                          const InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              contentPadding:
+                                              EdgeInsets.all(3)),
                                           dialogTextStyle: const TextStyle(
                                             color: Colors.black,
                                           ),
@@ -201,10 +203,10 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                           alignLeft: false,
                                         ),
                                         Transform.translate(
-                                            offset: Offset(-12, 0),
-                                            child: Icon(Icons.arrow_drop_down)),
+                                            offset: const Offset(-12, 0),
+                                            child: const Icon(Icons.arrow_drop_down)),
                                         Transform.translate(
-                                          offset: Offset(-10, 0),
+                                          offset: const Offset(-10, 0),
                                           child: Container(
                                             width: 1,
                                             height: 30,
@@ -216,9 +218,9 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                     errorText: phoneErrorText.isNotEmpty
                                         ? phoneErrorText
                                         : null,
-                                    contentPadding: EdgeInsets.symmetric(
+                                    contentPadding: const EdgeInsets.symmetric(
                                         horizontal: 12, vertical: 15),
-                                    border: OutlineInputBorder(),
+                                    border: const OutlineInputBorder(),
                                     label: Text(
                                         AppLocalizations.of(context)!.mobile),
                                   ),
@@ -237,10 +239,10 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                         showToast(state.error.message,
                                             error: true);
                                       } else if (state
-                                          is DownloadTicketLoaded) {
+                                      is DownloadTicketLoaded) {
                                         if (state.res.status == 1) {
                                           ticketDetails =
-                                              state.res.ticketDetails!;
+                                          state.res.ticketDetails!;
                                           expansionTileController.collapse();
                                           setState(() {});
                                         } else if (state.res.status != 1) {
@@ -248,7 +250,7 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                           setState(() {});
                                           showToast(
                                               ErrorMessage.getErrorFromMsg(
-                                                      state.res.m)
+                                                  state.res.m)
                                                   .message,
                                               error: true);
                                         }
@@ -260,46 +262,46 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                             padding: const EdgeInsets.all(15),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(50)),
+                                                BorderRadius.circular(50)),
                                             backgroundColor: AppColors
                                                 .secondaryColor
                                                 .parseColor()),
                                         onPressed: (state
-                                                is DownloadTicketLoading)
+                                        is DownloadTicketLoading)
                                             ? () {}
                                             : () {
-                                                if (_formKey.currentState!
-                                                    .validate()) {
-                                                  FocusManager
-                                                      .instance.primaryFocus!
-                                                      .unfocus();
+                                          if (_formKey.currentState!
+                                              .validate()) {
+                                            FocusManager
+                                                .instance.primaryFocus!
+                                                .unfocus();
 
-                                                  bloc.add(
-                                                      GetDownloadTicketData(
-                                                          cCode: dialCode,
-                                                          mobile: mobile
-                                                              .text
-                                                              .trim(),
-                                                          pnr:
-                                                              pnr.text.trim()));
-                                                } else if (pnr.text.isEmpty) {
-                                                  pnrFocus.requestFocus();
-                                                } else if (mobile
-                                                    .text.isEmpty) {
-                                                  mobileFocus.requestFocus();
-                                                }
-                                              },
+                                            bloc.add(
+                                                GetDownloadTicketData(
+                                                    cCode: dialCode,
+                                                    mobile: mobile
+                                                        .text
+                                                        .trim(),
+                                                    pnr:
+                                                    pnr.text.trim()));
+                                          } else if (pnr.text.isEmpty) {
+                                            pnrFocus.requestFocus();
+                                          } else if (mobile
+                                              .text.isEmpty) {
+                                            mobileFocus.requestFocus();
+                                          }
+                                        },
                                         child: (state is DownloadTicketLoading)
                                             ? const CircleLoader()
                                             : Text(
-                                                AppLocalizations.of(context)!
-                                                    .search,
-                                              ),
+                                          AppLocalizations.of(context)!
+                                              .search,
+                                        ),
                                       );
                                     },
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                               ],
@@ -326,483 +328,505 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                         borderRadius: BorderRadius.circular(10),
                                         color: Colors.white,
                                       ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 15, bottom: 20),
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
                                           children: [
-                                            const SizedBox(height: 10),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 60,
-                                                  height: 60,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            50),
-                                                    border: Border.all(
-                                                      color: Colors.grey
-                                                          .withOpacity(.5),
-                                                      width: 2,
-                                                    ),
-                                                    image: DecorationImage(
-                                                      image: AssetImage(
-                                                          AppImages.avatar),
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(width: 10),
-                                                Flexible(
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        e.name ?? "",
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 20,
-                                                          color: Colors.black,
-                                                        ),
-                                                      ),
-                                                      showMobileNumber(
-                                                        mobile:
-                                                            "${e.cCode ?? ""}${e.mobile ?? ""}",
-                                                        context: context,
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        textDecoration:
-                                                            TextDecoration.none,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 6,
-                                            ),
-                                            Row(
-                                              children: [
-                                                MyArc(
-                                                    diameter: 30, isLeft: true),
-                                                Expanded(child: MySeparator()),
-                                                MyArc(
-                                                    diameter: 30,
-                                                    isLeft: false),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            const SizedBox(
-                                              height: 6,
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 15.0, right: 15.0),
-                                              child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Expanded(
-                                                    child: Column(
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(10),
+                                                color: Colors.white,
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 15, bottom: 20),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                                  children: [
+                                                    const SizedBox(height: 10),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.center,
                                                       children: [
-                                                        Text(
-                                                          AppLocalizations.of(
-                                                                  context)!
-                                                              .from,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontSize: 15,
-                                                            color:
-                                                                Colors.black38,
+                                                        Container(
+                                                          width: 60,
+                                                          height: 60,
+                                                          decoration: BoxDecoration(
+                                                            borderRadius:
+                                                            BorderRadius.circular(
+                                                                50),
+                                                            border: Border.all(
+                                                              color: Colors.grey
+                                                                  .withOpacity(.5),
+                                                              width: 2,
+                                                            ),
+                                                            image: DecorationImage(
+                                                              image: AssetImage(
+                                                                  AppImages.avatar),
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
                                                         ),
-                                                        Text(
-                                                          e.from ?? "",
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                            fontSize: 17,
-                                                            color: AppColors
-                                                                .primaryColor
-                                                                .parseColor(),
-                                                            fontWeight:
-                                                                FontWeight.bold,
+                                                        const SizedBox(width: 10),
+                                                        Flexible(
+                                                          child: Column(
+                                                            crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                            children: [
+                                                              Text(
+                                                                e.name ?? "",
+                                                                style: const TextStyle(
+                                                                  fontWeight:
+                                                                  FontWeight.bold,
+                                                                  fontSize: 20,
+                                                                  color: Colors.black,
+                                                                ),
+                                                              ),
+                                                              showMobileNumber(
+                                                                mobile:
+                                                                "${e.cCode ?? ""}${e.mobile ?? ""}",
+                                                                context: context,
+                                                                color: Colors.black,
+                                                                fontWeight:
+                                                                FontWeight.w600,
+                                                                textDecoration:
+                                                                TextDecoration.none,
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ),
-                                                        Text(
-                                                          e!.boarding ?? "",
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontSize: 15,
-                                                            color:
-                                                                Colors.black54,
-                                                          ),
-                                                        ),
+                                                        )
                                                       ],
                                                     ),
-                                                  ),
-                                                  Expanded(
-                                                      child: Column(
-                                                    children: [
-                                                      Row(
+                                                    const SizedBox(
+                                                      height: 6,
+                                                    ),
+                                                    const Row(
+                                                      children: [
+                                                        MyArc(
+                                                            diameter: 30, isLeft: true),
+                                                        Expanded(child: MySeparator()),
+                                                        MyArc(
+                                                            diameter: 30,
+                                                            isLeft: false),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 6,
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(
+                                                          left: 15.0, right: 15.0),
+                                                      child: Row(
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment.center,
                                                         children: [
-                                                          Container(
-                                                            height: 10,
-                                                            width: 10,
-                                                            decoration: BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                border: Border.all(
-                                                                    color: AppColors
-                                                                        .primaryColor
-                                                                        .parseColor(),
-                                                                    width: 2)),
-                                                          ),
-                                                          SizedBox(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.06,
-                                                            height: 2,
-                                                            child: Container(
-                                                              color:
-                                                                  Colors.grey,
+                                                          Expanded(
+                                                            child: Column(
+                                                              children: [
+                                                                Text(
+                                                                  AppLocalizations.of(
+                                                                      context)!
+                                                                      .from,
+                                                                  textAlign:
+                                                                  TextAlign.center,
+                                                                  style:
+                                                                  const TextStyle(
+                                                                    fontSize: 15,
+                                                                    color:
+                                                                    Colors.black38,
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  e.from ?? "",
+                                                                  textAlign:
+                                                                  TextAlign.center,
+                                                                  style:
+                                                                  const TextStyle(
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                    FontWeight.bold,
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  e!.boarding ?? "",
+                                                                  textAlign:
+                                                                  TextAlign.center,
+                                                                  style:
+                                                                  const TextStyle(
+                                                                    fontSize: 13,
+                                                                    color:
+                                                                    Colors.black54,
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
-                                                          const SizedBox(
-                                                            width: 5,
-                                                          ),
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: AppColors
-                                                                  .primaryColor
-                                                                  .parseColor(),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          55),
+                                                          Expanded(
+                                                              child: Column(
+                                                                children: [
+                                                                  Row(
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        height: 10,
+                                                                        width: 10,
+                                                                        child: Container(
+                                                                          decoration:
+                                                                          BoxDecoration(
+                                                                            shape: BoxShape
+                                                                                .circle,
+                                                                            border:
+                                                                            Border.all(
+                                                                              color: AppColors
+                                                                                  .primaryColor
+                                                                                  .parseColor(),
+                                                                              width: 2,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Expanded(
+                                                                        child: SizedBox(
+                                                                          width: MediaQuery.of(
+                                                                              context)
+                                                                              .size
+                                                                              .width *
+                                                                              0.06,
+                                                                          height: 2,
+                                                                          child: Container(
+                                                                            color:
+                                                                            Colors.grey,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      const SizedBox(
+                                                                        width: 5,
+                                                                      ),
+                                                                      Container(
+                                                                        decoration:
+                                                                        BoxDecoration(
+                                                                          color: AppColors
+                                                                              .primaryColor
+                                                                              .parseColor(),
+                                                                          borderRadius:
+                                                                          BorderRadius
+                                                                              .circular(
+                                                                              55),
+                                                                        ),
+                                                                        padding:
+                                                                        const EdgeInsets.all(
+                                                                            8),
+                                                                        child: const Icon(
+                                                                          Icons
+                                                                              .directions_bus,
+                                                                          size: 22,
+                                                                          color:
+                                                                          Colors.white,
+                                                                        ),
+                                                                      ),
+                                                                      const SizedBox(
+                                                                        width: 5,
+                                                                      ),
+                                                                      Expanded(
+                                                                        child: SizedBox(
+                                                                          width: MediaQuery.of(
+                                                                              context)
+                                                                              .size
+                                                                              .width *
+                                                                              0.06,
+                                                                          height: 2,
+                                                                          child: Container(
+                                                                            color:
+                                                                            Colors.grey,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      SizedBox(
+                                                                        height: 10,
+                                                                        width: 10,
+                                                                        child: Container(
+                                                                          decoration:
+                                                                          BoxDecoration(
+                                                                            shape: BoxShape
+                                                                                .circle,
+                                                                            border:
+                                                                            Border.all(
+                                                                              color: AppColors
+                                                                                  .primaryColor
+                                                                                  .parseColor(),
+                                                                              width: 2,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  const SizedBox(
+                                                                    height: 2,
+                                                                  ),
+                                                                ],
+                                                              )),
+                                                          Expanded(
+                                                            child: Column(
+                                                              children: [
+                                                                Text(
+                                                                  AppLocalizations.of(
+                                                                      context)!
+                                                                      .to,
+                                                                  textAlign:
+                                                                  TextAlign.center,
+                                                                  style:
+                                                                  const TextStyle(
+                                                                    fontSize: 15,
+                                                                    color:
+                                                                    Colors.black38,
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  e.to ?? "",
+                                                                  textAlign:
+                                                                  TextAlign.center,
+                                                                  style:
+                                                                  const TextStyle(
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                    FontWeight.bold,
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  e.dropping ?? "",
+                                                                  textAlign:
+                                                                  TextAlign.center,
+                                                                  style:
+                                                                  const TextStyle(
+                                                                    fontSize: 13,
+                                                                    color:
+                                                                    Colors.black54,
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8),
-                                                            child: const Icon(
-                                                              Icons
-                                                                  .directions_bus,
-                                                              size: 22,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                          const SizedBox(
-                                                            width: 5,
-                                                          ),
-                                                          SizedBox(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.06,
-                                                            height: 2,
-                                                            child: Container(
-                                                              color:
-                                                                  Colors.grey,
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            height: 10,
-                                                            width: 10,
-                                                            decoration: BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                border: Border.all(
-                                                                    color: AppColors
-                                                                        .primaryColor
-                                                                        .parseColor(),
-                                                                    width: 2)),
                                                           ),
                                                         ],
                                                       ),
-                                                      const SizedBox(
-                                                        height: 2,
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 20,
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(
+                                                          left: 15.0, right: 15.0),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment.center,
+                                                        children: [
+                                                          Container(
+                                                            padding: const EdgeInsets.all(10),
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: Colors.grey,
+                                                              ),
+                                                              borderRadius:
+                                                              BorderRadius.circular(
+                                                                  8),
+                                                            ),
+                                                            child: Column(
+                                                              crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                              children: [
+                                                                Text(
+                                                                  "${e.journyDate ?? ""} ${e.departureTime ?? ""}",
+                                                                  style: const TextStyle(
+                                                                    fontSize: 15,
+                                                                    fontWeight:
+                                                                    FontWeight.w700,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
-                                                  )),
-                                                  Expanded(
-                                                    child: Column(
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 6,
+                                                    ),
+                                                    const Row(
                                                       children: [
-                                                        Text(
-                                                          AppLocalizations.of(
-                                                                  context)!
-                                                              .to,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontSize: 15,
-                                                            color:
-                                                                Colors.black38,
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          e.to ?? "",
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                            color: AppColors
-                                                                .primaryColor
-                                                                .parseColor(),
-                                                            fontSize: 17,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          e.dropping ?? "",
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontSize: 15,
-                                                            color:
-                                                                Colors.black54,
-                                                          ),
-                                                        ),
+                                                        MyArc(
+                                                            diameter: 30, isLeft: true),
+                                                        Expanded(child: MySeparator()),
+                                                        MyArc(
+                                                            diameter: 30,
+                                                            isLeft: false),
                                                       ],
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              height: 20,
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 15.0, right: 15.0),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    padding: EdgeInsets.all(10),
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                        color: Colors.grey,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          "${e.journyDate ?? ""} ${e.departureTime ?? ""}",
-                                                          style: TextStyle(
-                                                            fontSize: 15,
-                                                            fontWeight:
-                                                                FontWeight.w700,
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(
+                                                          left: 15.0, right: 15.0),
+                                                      child: Column(
+                                                        children: [
+                                                          const SizedBox(
+                                                            height: 20,
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Column(
+                                                                  mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                                  crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      AppLocalizations.of(
+                                                                          context)!
+                                                                          .pnr,
+                                                                      style:
+                                                                      const TextStyle(
+                                                                        fontSize: 15,
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      e.diPnr ?? "",
+                                                                      style: const TextStyle(
+                                                                        fontSize: 18,
+                                                                        fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                        color: Colors
+                                                                            .black,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          const SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Column(
+                                                                  mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                                  crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      AppLocalizations.of(
+                                                                          context)!
+                                                                          .coach,
+                                                                      style:
+                                                                      const TextStyle(
+                                                                        fontSize: 15,
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      e.coach ?? "",
+                                                                      style: const TextStyle(
+                                                                        fontSize: 18,
+                                                                        fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                        color: Colors
+                                                                            .black,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Column(
+                                                                  mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                                  crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                                  children: [
+                                                                    Text(
+                                                                      AppLocalizations.of(
+                                                                          context)!
+                                                                          .seats,
+                                                                      style:
+                                                                      const TextStyle(
+                                                                        fontSize: 15,
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      e.seatNames ?? "",
+                                                                      style: const TextStyle(
+                                                                        fontSize: 18,
+                                                                        fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                        color: Colors
+                                                                            .black,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          const SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          Column(
+                                                            mainAxisAlignment:
+                                                            MainAxisAlignment.start,
+                                                            crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                            children: [
+                                                              Text(
+                                                                AppLocalizations.of(
+                                                                    context)!
+                                                                    .fare,
+                                                                style: const TextStyle(
+                                                                  fontSize: 15,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                e.salePriceCrSymbol ??
+                                                                    "",
+                                                                style: const TextStyle(
+                                                                  fontSize: 18,
+                                                                  fontWeight:
+                                                                  FontWeight.bold,
+                                                                  color: Colors.black,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                             ),
-                                            const SizedBox(
-                                              height: 6,
-                                            ),
-                                            Row(
-                                              children: [
-                                                MyArc(
-                                                    diameter: 30, isLeft: true),
-                                                Expanded(child: MySeparator()),
-                                                MyArc(
-                                                    diameter: 30,
-                                                    isLeft: false),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 15.0, right: 15.0),
-                                              child: Column(
-                                                children: [
-                                                  const SizedBox(
-                                                    height: 20,
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              AppLocalizations.of(
-                                                                      context)!
-                                                                  .pnr,
-                                                              style:
-                                                                  const TextStyle(
-                                                                fontSize: 15,
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              e.diPnr ?? "",
-                                                              style: TextStyle(
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                color: Colors
-                                                                    .black,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 5,
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              AppLocalizations.of(
-                                                                      context)!
-                                                                  .coach,
-                                                              style:
-                                                                  const TextStyle(
-                                                                fontSize: 15,
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              e.coach ?? "",
-                                                              style: TextStyle(
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                color: Colors
-                                                                    .black,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            Text(
-                                                              AppLocalizations.of(
-                                                                      context)!
-                                                                  .seats,
-                                                              style:
-                                                                  const TextStyle(
-                                                                fontSize: 15,
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              e.seatNames ?? "",
-                                                              style: TextStyle(
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                color: Colors
-                                                                    .black,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        AppLocalizations.of(
-                                                                context)!
-                                                            .fare,
-                                                        style: const TextStyle(
-                                                          fontSize: 15,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        e.salePriceCrSymbol ??
-                                                            "",
-                                                        style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.black,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            )
                                           ],
                                         ),
-                                      ),
                                     ),
                                   ],
                                 ),
@@ -822,27 +846,27 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
                                         horizontal: 15, vertical: 15),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(50)),
+                                        BorderRadius.circular(50)),
                                     backgroundColor:
-                                        AppColors.secondaryColor.parseColor()),
+                                    AppColors.secondaryColor.parseColor()),
                                 onPressed: isLoading
                                     ? () {}
                                     : () async {
-                                        setState(() {
-                                          isLoading = true;
-                                        });
-                                        await downloadTicket(
-                                            ticketDetails.first, context);
-                                        setState(() {
-                                          isLoading = false;
-                                        });
-                                      },
+                                  setState(() {
+                                    isLoading = true;
+                                  });
+                                  await downloadTicket(
+                                      ticketDetails.first, context);
+                                  setState(() {
+                                    isLoading = false;
+                                  });
+                                },
                                 child: isLoading
                                     ? const CircleLoader()
                                     : Text(
-                                        AppLocalizations.of(context)!
-                                            .download_ticket,
-                                      ),
+                                  AppLocalizations.of(context)!
+                                      .download_ticket,
+                                ),
                               ),
                             ),
                           ),
@@ -875,10 +899,10 @@ class _DownloadTicketScreenState extends State<DownloadTicketScreen> {
           phoneErrorText = AppLocalizations.of(context)!.invalid_mobile_no;
         } else if (isPhoneValid['type'] == PhoneErrorType.short) {
           phoneErrorText =
-              "${AppLocalizations.of(context)!.phone_number_must_be} ${isPhoneValid['digit']} ${AppLocalizations.of(context)!.digits}";
+          "${AppLocalizations.of(context)!.phone_number_must_be} ${isPhoneValid['digit']} ${AppLocalizations.of(context)!.digits}";
         } else if (isPhoneValid['type'] == PhoneErrorType.rangeError) {
           phoneErrorText =
-              "${AppLocalizations.of(context)!.phone_number_between} ${isPhoneValid['min']} ${AppLocalizations.of(context)!.and} ${isPhoneValid['max']} ${AppLocalizations.of(context)!.digits}";
+          "${AppLocalizations.of(context)!.phone_number_between} ${isPhoneValid['min']} ${AppLocalizations.of(context)!.and} ${isPhoneValid['max']} ${AppLocalizations.of(context)!.digits}";
         } else {
           phoneErrorText = "";
         }

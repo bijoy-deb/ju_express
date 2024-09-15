@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
@@ -20,106 +21,133 @@ import 'i_departure_repository.dart';
 
 @Injectable(as: IDepartureRepository)
 class DepartureRepository extends IDepartureRepository {
+  // Declare ApiClient and AppSharedPrefs instances
   late final ApiClient apiClient;
   final AppSharedPrefs sp;
+
+  // Constructor to initialize ApiClient and AppSharedPrefs
   DepartureRepository(this.apiClient, this.sp);
 
+  /// Fetches the departure list based on provided parameters
+  /// Returns Either an [ErrorMessage] or [DepartureListRes]
   @override
-  Future<Either<ErrorMessage, DepartureListRes>> getDepartureList(
-      {required String from, required String to, required date}) async {
+  Future<Either<ErrorMessage, DepartureListRes>> getDepartureList({
+    required String from,
+    required String to,
+    required date,
+  }) async {
+    // Initialize response and errorMessage variables
     DepartureListRes res;
     ErrorMessage errorMessage = ErrorMessage(
-        message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
-        errorType: ErrorType.ERROR);
+      message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
+      errorType: ErrorType.ERROR,
+    );
     Response? response;
-    await apiClient.request(
-        url: APIEndPoints.webApi(),
-        method: Method.POST,
-        body: {
-          "module": "getDepartureList",
-          'license': getLicence(),
-          'from': from,
-          'to': to,
-          'date': date,
-          'vuHash': sp.getVHash(),
-          "version": getIt<PackageInfo>().version,
-          "ln": sp.getLnCode(),
-        },
-        onSuccess: (data) {
-          response = data;
-        },
-        onError: (data) {
-          log("onError ${data.errorType}");
-          errorMessage = data;
-        });
 
+    // API request to get the departure list
+    await apiClient.request(
+      url: APIEndPoints.webApi(),
+      method: Method.POST,
+      body: {
+        "module": "getDepartureList",
+        'license': getLicence(),
+        'from': from,
+        'to': to,
+        'date': date,
+        'vuHash': sp.getVHash(),
+        "version": getIt<PackageInfo>().version,
+        "ln": sp.getLnCode(),
+      },
+      onSuccess: (data) {
+        response = data;
+      },
+      onError: (data) {
+        log("onError ${data.errorType}");
+        errorMessage = data;
+      },
+    );
+
+    // Parse response or return error
     if (response != null) {
       try {
         res = departureListResFromJson(response!.body);
-
         return Right(res);
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          print(e);
+        }
         return Left(ErrorMessage(
-            message:
-                AppLocalizations.of(Globals.context!)!.something_went_wrong,
-            errorType: ErrorType.ERROR));
+          message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
+          errorType: ErrorType.ERROR,
+        ));
       }
     } else {
       return Left(errorMessage);
     }
   }
 
+  /// Fetches the departure details based on provided parameters
+  /// Returns Either an [ErrorMessage] or [DepartureDetails]
   @override
-  Future<Either<ErrorMessage, DepartureDetails>> getDepartureDetails(
-      {required String from,
-      required String to,
-      required String date,
-      required String dID}) async {
+  Future<Either<ErrorMessage, DepartureDetails>> getDepartureDetails({
+    required String from,
+    required String to,
+    required String date,
+    required String dID,
+  }) async {
     DepartureDetails res;
     ErrorMessage errorMessage = ErrorMessage(
-        message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
-        errorType: ErrorType.ERROR);
+      message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
+      errorType: ErrorType.ERROR,
+    );
     Response? response;
-    await apiClient.request(
-        url: APIEndPoints.webApi(),
-        method: Method.POST,
-        body: {
-          "module": "loadDepartureDetails",
-          'license': getLicence(),
-          'from': from,
-          'to': to,
-          'date': date,
-          "dID": dID,
-          "version": getIt<PackageInfo>().version,
-          "searchRange": "0",
-          'vuHash': sp.getVHash(),
-          "ln": sp.getLnCode(),
-        },
-        onSuccess: (data) {
-          response = data;
-        },
-        onError: (data) {
-          log("onError ${data.errorType}");
-          errorMessage = data;
-        });
 
+    // API request to get departure details
+    await apiClient.request(
+      url: APIEndPoints.webApi(),
+      method: Method.POST,
+      body: {
+        "module": "loadDepartureDetails",
+        'license': getLicence(),
+        'from': from,
+        'to': to,
+        'date': date,
+        "dID": dID,
+        "version": getIt<PackageInfo>().version,
+        "searchRange": "0",
+        'vuHash': sp.getVHash(),
+        "ln": sp.getLnCode(),
+      },
+      onSuccess: (data) {
+        response = data;
+      },
+      onError: (data) {
+        log("onError ${data.errorType}");
+        errorMessage = data;
+      },
+    );
+
+    // Parse response or return error
     if (response != null) {
       try {
         res = departureDetailsFromJson(response!.body);
         return Right(res);
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          print(e);
+        }
         return Left(ErrorMessage(
-            message:
-                AppLocalizations.of(Globals.context!)!.something_went_wrong,
-            errorType: ErrorType.ERROR));
+          message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
+          errorType: ErrorType.ERROR,
+        ));
       }
     } else {
       return Left(errorMessage);
     }
   }
 
+  /// Reserves a seat based on provided parameters
+  /// Returns Either an [ErrorMessage] or [SeatReserveRes]
   @override
   Future<Either<ErrorMessage, SeatReserveRes>> reserveSeat({
     required String from,
@@ -128,53 +156,53 @@ class DepartureRepository extends IDepartureRepository {
     required String vHash,
     required List<String> dsIDs,
   }) async {
-    String dsIDComma = "";
-    for (int i = 0; i < dsIDs.length; i++) {
-      String s = dsIDs.elementAt(i);
+    // Convert dsIDs list to comma-separated string
+    String dsIDComma = dsIDs.join(",");
 
-      if (dsIDComma.isNotEmpty) {
-        dsIDComma += ",$s";
-      } else {
-        dsIDComma = s;
-      }
-    }
     SeatReserveRes res;
     ErrorMessage errorMessage = ErrorMessage(
-        message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
-        errorType: ErrorType.ERROR);
+      message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
+      errorType: ErrorType.ERROR,
+    );
     Response? response;
-    await apiClient.request(
-        url: APIEndPoints.webApi(),
-        method: Method.POST,
-        body: {
-          "module": "newTicketReserve",
-          'license': getLicence(),
-          'from': from,
-          'to': to,
-          'date': date,
-          'vuHash': vHash,
-          "dsIDComma": dsIDComma,
-          "version": getIt<PackageInfo>().version,
-          "ln": sp.getLnCode(),
-        },
-        onSuccess: (data) {
-          response = data;
-        },
-        onError: (data) {
-          log("onError ${data.errorType}");
-          errorMessage = data;
-        });
 
+    // API request to reserve seat
+    await apiClient.request(
+      url: APIEndPoints.webApi(),
+      method: Method.POST,
+      body: {
+        "module": "newTicketReserve",
+        'license': getLicence(),
+        'from': from,
+        'to': to,
+        'date': date,
+        'vuHash': vHash,
+        "dsIDComma": dsIDComma,
+        "version": getIt<PackageInfo>().version,
+        "ln": sp.getLnCode(),
+      },
+      onSuccess: (data) {
+        response = data;
+      },
+      onError: (data) {
+        log("onError ${data.errorType}");
+        errorMessage = data;
+      },
+    );
+
+    // Parse response or return error
     if (response != null) {
       try {
         res = seatSeatReserveResFromJson(response!.body);
         return Right(res);
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          print(e);
+        }
         return Left(ErrorMessage(
-            message:
-                AppLocalizations.of(Globals.context!)!.something_went_wrong,
-            errorType: ErrorType.ERROR));
+          message: AppLocalizations.of(Globals.context!)!.something_went_wrong,
+          errorType: ErrorType.ERROR,
+        ));
       }
     } else {
       return Left(errorMessage);
