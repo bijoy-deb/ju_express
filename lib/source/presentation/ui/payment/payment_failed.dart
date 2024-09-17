@@ -43,8 +43,8 @@ class _PaymentFailState extends State<PaymentFail> {
                   height: 30,
                 ),
                 Text(
-                  widget.error ?? AppLocalizations.of(context)!.payment_failed,
-                  style: const TextStyle(fontSize: 16),
+                   AppLocalizations.of(context)!.payment_failed,
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 const SizedBox(
                   height: 30,

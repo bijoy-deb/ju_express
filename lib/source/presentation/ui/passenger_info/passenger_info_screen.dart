@@ -9,7 +9,6 @@ import 'package:ju_express/source/data/model/home/home_page_int_res.dart';
 import 'package:ju_express/source/data/model/passenger_info/cupon_details.dart';
 import 'package:ju_express/source/data/model/passenger_info/passenger_info_args.dart';
 import 'package:ju_express/source/data/model/passenger_info/ticket_sale_prams.dart';
-import 'package:ju_express/source/data/model/payment_confirm/trip_details.dart';
 import 'package:ju_express/source/presentation/bloc/passenger_info/passenger_info_bloc.dart';
 import 'package:ju_express/source/presentation/ui/passenger_info/widget/bus_card_layout.dart';
 import 'package:ju_express/source/presentation/ui/passenger_info/widget/invoice_input_layout.dart';
@@ -155,8 +154,8 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                                     idTypes: widget.infoArgs.idTypes,
                                     isLead: index == 0 &&
                                         widget.infoArgs.seats.length > 1,
-                                    fareDetails:
-                                        widget.infoArgs.departure.fareDetails!,
+                                    fareDetails: widget
+                                        .infoArgs.seats[index].fareDetails!,
                                   ),
                                 );
                               }),
@@ -582,7 +581,8 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                                                           ),
                                                         );
                                                       } else {
-                                                        return const Text("Apply");
+                                                        return const Text(
+                                                            "Apply");
                                                       }
                                                     },
                                                   ),
@@ -691,9 +691,6 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
                   } else if (state is TicketSaleSuccess) {
                     EasyLoading.dismiss();
                     if (state.ticketSaleRes.status == 1) {
-                      TripDetailsPayment details = TripDetailsPayment(
-                          saleRes: state.ticketSaleRes,
-                          infoArgs: widget.infoArgs);
                       router.push(RoutePath.paymentSelectionScreen,
                           extra: state.ticketSaleRes);
                     } else if (state.ticketSaleRes.status != 1) {
@@ -803,7 +800,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
           "seats[$i][cCode]": controller[i].cCode.toString(),
         if (homePageIntRes.inputFields!["passenger_id_type_seat"]!.fillable ==
             1)
-          "seats[$i][idType]": controller[i].selectIdType ?? "",
+          "seats[$i][idType]": controller[i].selectIdType,
         if (homePageIntRes.inputFields!["passenger_id_seat"]!.fillable == 1)
           "seats[$i][idNo]": controller[i].idNoController.text,
         if (homePageIntRes.inputFields!["altName_seat"]!.fillable == 1)

@@ -20,9 +20,6 @@ import 'package:ju_express/source/utils/app_color.dart';
 import 'package:ju_express/source/utils/custom_extensions.dart';
 import 'widget/my_date_picker.dart';
 
-// lib/my_library.dart
-export 'package:ju_express/source/presentation/ui/departure_list/departure_list_screen.dart';
-
 
 /// This is the screen for displaying the list of departures.
 /// Class: DepartureListScreen

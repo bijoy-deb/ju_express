@@ -7,6 +7,7 @@ import 'package:ju_express/source/data/model/passenger_info/passenger_info_args.
 
 import '../source/data/model/passenger_info/ticket_sale_res.dart';
 import '../source/presentation/ui/boarding_dropping/select_boarding_dropping.dart';
+import '../source/presentation/ui/booking_history/booking_history_screen.dart';
 import '../source/presentation/ui/change_number/change_number_screen.dart';
 import '../source/presentation/ui/contact_us/contact_us_screen.dart';
 import '../source/presentation/ui/departure_details/depature_details_screen.dart';
@@ -172,13 +173,19 @@ class AppRoute {
         pageBuilder: (context, state) => createRoutePage(
             pageKey: state.pageKey,
             widget:
-            PaymentSelectionScreen(saleRes: state.extra as TicketSaleRes)),
+                PaymentSelectionScreen(saleRes: state.extra as TicketSaleRes)),
       ),
       GoRoute(
         name: 'sign_up',
         path: RoutePath.signUp,
         pageBuilder: (context, state) => createRoutePage(
             pageKey: state.pageKey, widget: const SignUpScreen()),
+      ),
+      GoRoute(
+        name: 'view_history',
+        path: RoutePath.viewHistory,
+        pageBuilder: (context, state) => createRoutePage(
+            pageKey: state.pageKey, widget: const BookingHistoryScreen()),
       ),
     ],
   );
@@ -192,6 +199,7 @@ class RoutePath {
   static const String onBoard = "/onBoard";
   static const String signIn = "/sign_in";
   static const String profile = "/profile";
+  static const String viewHistory = "/view_history";
   static const String change_number = "/change_number";
   static const String signUp = "/sign_up";
   static const String change_mail = "/change_mail";

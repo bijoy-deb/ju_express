@@ -297,5 +297,10 @@
   "bus_card": "Bus card",
   "balance": "Balance",
   "bus_card_or_mobile": "Bus card or mobile",
-  "check_balance": "Check balance"
+  "check_balance": "Check balance",
+  "deposit": "Deposit",
+  "statement": "Statement",
+  "history": "History",
+  "viewHistory": "View History",
+  "date_range": "Date range"
 }

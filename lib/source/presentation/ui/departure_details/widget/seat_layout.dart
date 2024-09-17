@@ -1,9 +1,6 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
 import 'package:ju_express/source/utils/app_images.dart';
 import 'package:ju_express/source/utils/custom_extensions.dart';
 import 'package:ju_express/source/utils/helper_functions.dart';
@@ -55,26 +52,36 @@ class _SeatLayoutState extends State<SeatLayout> {
         ),
         padding: EdgeInsets.all(5),
         margin: EdgeInsets.zero,
-        child: AlignedGridView.count(
+        child: StaggeredGrid.count(
           crossAxisCount: widget.seatColumn,
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,
-          itemCount: widget.seats.length,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return InkResponse(
-              onTap: () => {seatClick(index)},
-              child: Center(
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                  height: 60,
-                  child: getSeat(widget.seats[index], index),
-                ),
-              ),
-            );
-          },
+          children: List.generate(widget.seats.length, (index) {
+            var item = widget.seats[index];
+
+            int c = 1;
+            if (item.row != "") {
+              c = int.parse(item.row);
+            }
+            int r = 1;
+            if (item.col != "") {
+              r = int.parse(item.col);
+            }
+            return StaggeredGridTile.count(
+                crossAxisCellCount: r,
+                mainAxisCellCount: c,
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: InkResponse(
+                    onTap: () => {seatClick(index)},
+                    child: Center(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 5),
+                        child: getSeat(widget.seats[index], index),
+                      ),
+                    ),
+                  ),
+                ));
+          }),
         ));
   }
 

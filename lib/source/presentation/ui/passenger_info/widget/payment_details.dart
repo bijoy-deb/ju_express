@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ju_express/source/data/model/passenger_info/cupon_details.dart';
@@ -48,7 +50,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   Widget build(BuildContext context) {
     subTotal = getSubtotal();
 
-
     processFee = widget.infoArgs.processFeeType == 1
         ? (widget.infoArgs.processFee / 100) * subTotal
         : widget.infoArgs.processFee * widget.infoArgs.seats.length;
@@ -59,6 +60,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
       discount = calculateSeatDiscount(widget.infoArgs, subTotal);
     }
     widget.infoArgs.totalPayable = subTotal + processFee - discount;
+    log("payment data $subTotal $processFee $discount ${widget.infoArgs.totalPayable}");
 
     setState(() {});
 
@@ -79,7 +81,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
               color: Colors.black,
               thickness: 1,
             ),
-
             Row(
               children: [
                 SizedBox(

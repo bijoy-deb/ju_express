@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ju_express/config/app_config.dart';
-import 'package:ju_express/source/presentation/ui/profile/profile_screen.dart';
 import 'package:ju_express/source/utils/app_color.dart';
 import 'package:ju_express/source/utils/custom_extensions.dart';
 import 'package:open_file/open_file.dart';
@@ -17,6 +16,7 @@ import '../../../utils/helper_functions.dart';
 import '../../../utils/notification_service.dart';
 import '../download_ticket/download_ticket_screen.dart';
 import '../more/more_screen.dart';
+import '../profile/widget/profile_tab_screen.dart';
 import '../search/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _pages = const <Widget>[
       SearchScreen(),
       DownloadTicketScreen(),
-      ProfileScreen(),
+      ProfileTabScreen(),
       MoreScreen()
     ];
     super.initState();

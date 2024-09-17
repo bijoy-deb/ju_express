@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:ju_express/route/route_config.dart';
 import 'package:ju_express/source/data/local/app_shared_preferences.dart';
 import 'package:ju_express/source/data/model/departure_details/BusSeat.dart';
@@ -14,7 +13,6 @@ import 'package:ju_express/source/data/model/departure_details/SeatLayoutModel.d
 import 'package:ju_express/source/data/model/departure_details/departure_search_args.dart';
 import 'package:ju_express/source/data/model/departure_list/departure_list.dart';
 import 'package:ju_express/source/data/model/passenger_info/passenger_info_args.dart';
-
 import 'package:ju_express/source/presentation/bloc/seat_reserve/reserve_seat_bloc.dart'
     as seat;
 import 'package:ju_express/source/presentation/ui/departure_details/widget/seat_layout.dart';
@@ -238,15 +236,136 @@ class _DepartureDetailsScreenState extends State<DepartureDetailsScreen> {
                                       Container(
                                         margin: const EdgeInsets.only(
                                             top: 12, right: 3, left: 3),
-                                        child: SeatLayout(
-                                          seats:
-                                              state.seatLayoutModel!.busSeats,
-                                          seatColumn: state
-                                              .seatLayoutModel!.numberOfColumn,
-                                          publishSubject: publishSubject,
-                                          selectedPosition: _selectedPosition,
-                                          maxSeat: state.res.maxSeat!,
-                                        ),
+                                        child: Builder(builder: (context) {
+                                          var maxCol = 0;
+                                          var stData = state.res
+                                              .seatTemplate['stData'] as List;
+                                          state.seatLayoutModel!.busSeats
+                                              .clear();
+                                          for (int i = 0;
+                                              i < stData.length;
+                                              i++) {
+                                            var item = stData[i];
+                                            if (item is Map) {
+                                              if (item.keys.length > maxCol) {
+                                                maxCol = item.keys.length;
+                                              }
+                                              for (int j = 0;
+                                                  j < item.keys.length;
+                                                  j++) {
+                                                var key =
+                                                    item.keys.elementAt(j);
+                                                var value = item[key];
+                                                var seat =
+                                                    BusSeat("", "", "", 0, "");
+                                                if (value['c'] != null) {
+                                                  seat.col = value['c'];
+                                                }
+                                                if (value['r'] != null) {
+                                                  seat.row = value['r'];
+                                                }
+                                                if (value['t'] == "dr") {
+                                                  seat.seatName = "DRIVER";
+                                                }
+                                                //type do = Door
+                                                if (value['t'] == "do") {
+                                                  seat.seatName = "DOOR";
+                                                }
+
+                                                if (value['n'] != null) {
+                                                  seat.seatName = value['n'];
+                                                }
+                                                var indx = state.res.seats!
+                                                    .indexWhere((element) =>
+                                                        element.seatName ==
+                                                        seat.seatName);
+                                                if (indx != -1) {
+                                                  seat.dsID = state
+                                                      .res.seats![indx].dsId
+                                                      .toString();
+                                                  seat.seatName = state
+                                                      .res.seats![indx].seatName
+                                                      .toString();
+                                                  seat.forSale = state.res
+                                                      .seats![indx].forSale!;
+                                                  seat.gender = state
+                                                      .res.seats![indx].gender;
+                                                  seat.seatStatus = state.res
+                                                      .seats![indx].seatStatus
+                                                      .toString();
+                                                  seat.fareDetails = state.res
+                                                      .seats![indx].fareDetails;
+                                                }
+                                                state.seatLayoutModel!.busSeats
+                                                    .add(seat);
+                                              }
+                                            } else if (item is List) {
+                                              if (item.length > maxCol) {
+                                                maxCol = item.length;
+                                              }
+
+                                              for (int j = 0;
+                                                  j < item.length;
+                                                  j++) {
+                                                var key = j;
+                                                var value = item[j];
+                                                var seat =
+                                                    BusSeat("", "", "", 0, "");
+                                                if (value['c'] != null) {
+                                                  seat.col = value['c'];
+                                                }
+                                                if (value['r'] != null) {
+                                                  seat.row = value['r'];
+                                                }
+                                                if (value['t'] == "dr") {
+                                                  seat.seatName = "DRIVER";
+                                                }
+                                                //type do = Door
+                                                if (value['t'] == "do") {
+                                                  seat.seatName = "DOOR";
+                                                }
+                                                if (value['n'] != null) {
+                                                  seat.seatName = value['n'];
+                                                }
+
+                                                var indx = state.res.seats!
+                                                    .indexWhere((element) =>
+                                                        element.seatName ==
+                                                        seat.seatName);
+                                                if (indx != -1) {
+                                                  if (state.res.seats![indx]
+                                                          .seatName !=
+                                                      "8") {}
+                                                  seat.gender = state
+                                                      .res.seats![indx].gender;
+
+                                                  seat.dsID = state
+                                                      .res.seats![indx].dsId
+                                                      .toString();
+                                                  seat.forSale = state.res
+                                                      .seats![indx].forSale!;
+                                                  seat.seatStatus = state.res
+                                                      .seats![indx].seatStatus
+                                                      .toString();
+
+                                                  seat.fareDetails = state.res
+                                                      .seats![indx].fareDetails;
+                                                }
+
+                                                state.seatLayoutModel!.busSeats
+                                                    .add(seat);
+                                              }
+                                            }
+                                          }
+                                          return SeatLayout(
+                                            seats:
+                                                state.seatLayoutModel!.busSeats,
+                                            seatColumn: maxCol,
+                                            publishSubject: publishSubject,
+                                            selectedPosition: _selectedPosition,
+                                            maxSeat: state.res.maxSeat!,
+                                          );
+                                        }),
                                       ),
                                     ],
                                   ),

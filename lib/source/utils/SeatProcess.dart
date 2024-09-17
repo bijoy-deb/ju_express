@@ -53,16 +53,11 @@ class SeatProcess {
 
             /*for (int j = 0; j < rowKeys.length; j++)*/
             while (keys.moveNext()) {
-              t = "";
-              n = "";
-              c = "";
-              r = "";
-              sc = "0";
               // var key = rowKeys.elementAt(j);
               var key = keys.current;
               countK++;
               String index = keys.current.toString();
-              int in_Dex = int.parse(index);
+              int inDex = int.parse(index);
               Map data = row[key];
 
               if (data.containsKey("t")) {
@@ -92,13 +87,7 @@ class SeatProcess {
               if (v > 1) {
                 // print("blank->$index-$lastIndex");
                 for (int p = 0; p < v - 1; p++) {
-                  BusSeat seat = BusSeat(
-                    "",
-                    "",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               }
@@ -109,36 +98,21 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p == 0) {
-                      BusSeat seat = BusSeat(
-                        "",
-                        "Driver",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      BusSeat seat =
+                          BusSeat("", "Driver", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
                 } else {
                   position++;
-                  BusSeat seat = BusSeat(
-                    "",
-                    "Driver",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat =
+                      BusSeat("", "Driver", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               } else if (t == "c") {
@@ -148,23 +122,11 @@ class SeatProcess {
                 }
 
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "") {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "b") {
                 int col = int.parse(c);
@@ -172,30 +134,15 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p != 0) {
-                      ++in_Dex;
-                      index = in_Dex.toString();
+                      ++inDex;
+                      index = inDex.toString();
                     }
-                    BusSeat seat = BusSeat(
-                      "",
-                      "",
-                      "",
-                      -1,
-                      sc,
-                    );
+                    BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                     seatArrayList.add(seat);
                   }
                 } else {
                   position++;
-                  if (n.isNotEmpty) {
-                    log("n.isNotEmpty ->$n");
-                  }
-                  BusSeat seat = BusSeat(
-                    "",
-                    n.isNotEmpty ? n : "",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               } else if (t == "do") {
@@ -204,36 +151,21 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p == 0) {
-                      BusSeat seat = BusSeat(
-                        "",
-                        "Door",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      BusSeat seat =
+                          BusSeat("", "Door", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
                 } else {
                   position++;
-                  BusSeat seat = BusSeat(
-                    "",
-                    "Door",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat =
+                      BusSeat("", "Door", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               } else if (t == "s") {
@@ -257,15 +189,10 @@ class SeatProcess {
                       seatPosition++;
                       position++;
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
@@ -277,8 +204,8 @@ class SeatProcess {
                     "${dd.seatStatus}",
                     dd.forSale!,
                     sc,
-                    gender: dd.gender,
                     fareDetails: dd.fareDetails,
+                    gender: dd.gender,
                   );
 
                   seatArrayList.add(seat);
@@ -292,36 +219,21 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p == 0) {
-                      BusSeat seat = BusSeat(
-                        "",
-                        "Hostess",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      BusSeat seat =
+                          BusSeat("", "Hostess", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
                 } else {
                   position++;
-                  BusSeat seat = BusSeat(
-                    "",
-                    "Hostess",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat =
+                      BusSeat("", "Hostess", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               } else if (t == "l") {
@@ -330,36 +242,21 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p == col - 1) {
-                      BusSeat seat = BusSeat(
-                        "",
-                        "Lavatory",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      BusSeat seat =
+                          BusSeat("", "Lavatory", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
                 } else {
                   position++;
-                  BusSeat seat = BusSeat(
-                    "",
-                    "Lavatory",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat =
+                      BusSeat("", "Lavatory", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               } else if (t == "st") {
@@ -368,36 +265,21 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p == 0) {
-                      BusSeat seat = BusSeat(
-                        "",
-                        "Staff",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      BusSeat seat =
+                          BusSeat("", "Staff", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
                 } else {
                   position++;
-                  BusSeat seat = BusSeat(
-                    "",
-                    "Staff",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat =
+                      BusSeat("", "Staff", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               } else if (t == "e") {
@@ -406,36 +288,21 @@ class SeatProcess {
                   for (int p = 0; p < col; p++) {
                     position++;
                     if (p == 0) {
-                      BusSeat seat = BusSeat(
-                        "",
-                        "Engine",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      BusSeat seat =
+                          BusSeat("", "Engine", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     } else {
-                      ++in_Dex;
-                      index = in_Dex.toString();
-                      BusSeat seat = BusSeat(
-                        "",
-                        "",
-                        "",
-                        -1,
-                        sc,
-                      );
+                      ++inDex;
+                      index = inDex.toString();
+                      BusSeat seat =
+                          BusSeat("", "", "", -1, sc, col: c, row: r);
                       seatArrayList.add(seat);
                     }
                   }
                 } else {
                   position++;
-                  BusSeat seat = BusSeat(
-                    "",
-                    "Engine",
-                    "",
-                    -1,
-                    sc,
-                  );
+                  BusSeat seat =
+                      BusSeat("", "Engine", "", -1, sc, col: c, row: r);
                   seatArrayList.add(seat);
                 }
               }
@@ -483,33 +350,17 @@ class SeatProcess {
 
               if (t == "st") {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "Staff",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "Staff", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "e") {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "Engine",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat =
+                    BusSeat("", "Engine", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "dr") {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "Driver",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat =
+                    BusSeat("", "Driver", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "c") {
                 //  print("object->$r");
@@ -518,46 +369,19 @@ class SeatProcess {
                 }
                 //   cIndex = Integer.parseInt(index);
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "") {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "b") {
                 position++;
-                if (n.isNotEmpty) {
-                  log("n.isNotEmpty ->$n");
-                }
-                BusSeat seat = BusSeat(
-                  "",
-                  n.isNotEmpty ? n : "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "do") {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "Door",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "Door", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "s") {
                 Seat dd = seatList.elementAt(seatPosition);
@@ -567,8 +391,8 @@ class SeatProcess {
                   "${dd.seatStatus}",
                   dd.forSale!,
                   sc,
-                  gender: dd.gender,
                   fareDetails: dd.fareDetails,
+                  gender: dd.gender,
                 );
 
                 seatArrayList.add(seat);
@@ -581,54 +405,26 @@ class SeatProcess {
                 for (int p = 0; p < col; p++) {
                   position++;
                   if (p == 0) {
-                    BusSeat seat = BusSeat(
-                      "",
-                      "Hostess",
-                      "",
-                      -1,
-                      sc,
-                    );
+                    BusSeat seat =
+                        BusSeat("", "Hostess", "", -1, sc, col: c, row: r);
                     seatArrayList.add(seat);
                   } else {
-                    BusSeat seat = BusSeat(
-                      "",
-                      "",
-                      "",
-                      -1,
-                      sc,
-                    );
+                    BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                     seatArrayList.add(seat);
                   }
                 }
-                BusSeat seat = BusSeat(
-                  "",
-                  "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               } else if (t == "l") {
                 int col = int.parse(c);
                 for (int p = 0; p < col; p++) {
                   position++;
                   if (p == 0) {
-                    BusSeat seat = BusSeat(
-                      "",
-                      "",
-                      "",
-                      -1,
-                      sc,
-                    );
+                    BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                     seatArrayList.add(seat);
                   } else {
-                    BusSeat seat = BusSeat(
-                      "",
-                      "Lavatory",
-                      "",
-                      -1,
-                      sc,
-                    );
+                    BusSeat seat =
+                        BusSeat("", "Lavatory", "", -1, sc, col: c, row: r);
                     seatArrayList.add(seat);
                   }
                 }
@@ -639,19 +435,13 @@ class SeatProcess {
 
               for (int j = 0; j < restColumn; j++) {
                 position++;
-                BusSeat seat = BusSeat(
-                  "",
-                  "",
-                  "",
-                  -1,
-                  sc,
-                );
+                BusSeat seat = BusSeat("", "", "", -1, sc, col: c, row: r);
                 seatArrayList.add(seat);
               }
             }
           }
         } catch (e) {
-          print("exc--${e}");
+          log("exc--${e.toString()}");
         }
         lastIndex = 0;
       }
@@ -701,8 +491,8 @@ class SeatProcess {
                   "${dd.seatStatus}",
                   dd.forSale!,
                   sc,
-                  gender: dd.gender,
                   fareDetails: dd.fareDetails,
+                  gender: dd.gender,
                 );
                 seatArrayList.add(seat);
 
@@ -735,8 +525,8 @@ class SeatProcess {
               "${dd.seatStatus}",
               dd.forSale!,
               sc,
-              gender: dd.gender,
               fareDetails: dd.fareDetails,
+              gender: dd.gender,
             );
             seatArrayList.add(seat);
             l++;
@@ -752,8 +542,8 @@ class SeatProcess {
                   "${dd.seatStatus}",
                   dd.forSale!,
                   sc,
-                  gender: dd.gender,
                   fareDetails: dd.fareDetails,
+                  gender: dd.gender,
                 );
                 seatArrayList.add(seat);
 
@@ -786,8 +576,8 @@ class SeatProcess {
               "${dd.seatStatus}",
               dd.forSale!,
               sc,
-              gender: dd.gender,
               fareDetails: dd.fareDetails,
+              gender: dd.gender,
             );
             seatArrayList.add(seat);
             l++;

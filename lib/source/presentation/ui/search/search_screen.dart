@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,11 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-
 import 'package:ju_express/route/route_config.dart';
 import 'package:ju_express/source/data/local/app_shared_preferences.dart';
 import 'package:ju_express/source/data/model/departure_details/departure_search_args.dart';
-
 import 'package:ju_express/source/presentation/bloc/home/home_bloc.dart';
 import 'package:ju_express/source/presentation/ui/search/widget/swap_button.dart';
 import 'package:ju_express/source/presentation/widgets/shimmer_effect.dart';
@@ -61,7 +61,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget successAlert;
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
       child: BlocProvider(
@@ -69,12 +68,12 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Stack(
           children: [
             Container(
-              height: (MediaQuery.of(context).size.height ) /
-                  2,
+              height: (MediaQuery.of(context).size.height) / 2,
               color: AppColors.primaryColor.parseColor().withOpacity(.95),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0).copyWith(bottom: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0)
+                  .copyWith(bottom: 20),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -421,6 +420,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           );
                         } else if (state is HomePageIntLoaded) {
                           if (state.res.status == 1) {
+                            log("pop list ${state.res.popularBusTripsList}");
                             return Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Column(
@@ -454,12 +454,12 @@ class _SearchScreenState extends State<SearchScreen> {
                                           for (var data in state
                                               .res.popularBusTripsList!) ...[
                                             Container(
-                                              margin: const EdgeInsets.only(
+                                              margin: EdgeInsets.only(
                                                 left: 5,
                                                 right: 5,
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.only(
+                                                padding: EdgeInsets.only(
                                                     bottom: 8, left: 4),
                                                 child: InkWell(
                                                   borderRadius:
@@ -473,27 +473,29 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                   distId:
                                                                       data.from,
                                                                   distTitle: data
-                                                                      .pbtUrl
+                                                                      .route
                                                                       ?.split(
-                                                                          "-")[0],
+                                                                          "to")[0],
                                                                 ),
                                                                 to: District(
                                                                   distId:
                                                                       data.to,
                                                                   distTitle: data
-                                                                      .pbtUrl
+                                                                      .route
                                                                       ?.split(
-                                                                          "-")[1],
+                                                                          "to")[1],
                                                                 ),
                                                                 date: DateTime
                                                                     .now()));
                                                   },
                                                   child: Ink(
                                                     child: Container(
+                                                      height: 130,
+                                                      width: 200,
                                                       padding:
-                                                          const EdgeInsets.symmetric(
-                                                              vertical: 8,
-                                                              horizontal: 8),
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 2,
+                                                              horizontal: 2),
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         borderRadius:
@@ -501,54 +503,44 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                 .circular(5),
                                                         border: Border.all(
                                                             color: Colors.grey),
+                                                        image: DecorationImage(
+                                                          image:
+                                                              CachedNetworkImageProvider(
+                                                                  data.image!),
+                                                          fit: BoxFit.cover,
+                                                        ),
                                                       ),
-                                                      child: Stack(
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
                                                         children: [
-                                                          Column(
-                                                            children: [
-                                                              Container(
-                                                                  height: 80,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            10),
-                                                                    image:
-                                                                        DecorationImage(
-                                                                      image: CachedNetworkImageProvider(
-                                                                          data.image ??
-                                                                              ""),
-                                                                      fit: BoxFit
-                                                                          .contain,
-                                                                    ),
-                                                                  )),
-                                                              Container(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .all(8),
-                                                                child: Text(
-                                                                  data.route ??
-                                                                      "",
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    fontSize:
-                                                                        16,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                ),
-                                                              ),
-                                                            ],
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 8.0,
+                                                                    top: 8),
+                                                            child: Text(
+                                                              data.route!,
+                                                              style: const TextStyle(
+                                                                  fontSize: 18,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500),
+                                                            ),
                                                           ),
-                                                          Positioned(
-                                                            top: 8,
-                                                            right: 8,
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 8.0,
+                                                                    bottom: 8),
                                                             child: Container(
-                                                              padding: const EdgeInsets
+                                                              padding: EdgeInsets
                                                                   .symmetric(
                                                                       vertical:
                                                                           4,
@@ -569,7 +561,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                 data.cheapestTripAmount ??
                                                                     "",
                                                                 style:
-                                                                    const TextStyle(
+                                                                    TextStyle(
                                                                   color: Colors
                                                                       .yellow,
                                                                   fontSize: 14,

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'package:ju_express/source/data/model/download_ticket/download_ticket_res.dart';
 import 'package:ju_express/source/utils/custom_extensions.dart';
 
 import '../../../../di/injection.dart';
 import '../../../../route/route_config.dart';
-
 import '../../../utils/app_color.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/helper_functions.dart';
@@ -159,7 +157,7 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      left: 12.0, right: 12.0),
+                                      left: 15.0, right: 15.0),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -179,10 +177,8 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                             Text(
                                               e.from ?? "",
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                fontSize: 17,
-                                                color: AppColors.primaryColor
-                                                    .parseColor(),
+                                              style: const TextStyle(
+                                                fontSize: 14,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -190,7 +186,7 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                               e.boarding ?? "",
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 15,
+                                                fontSize: 13,
                                                 color: Colors.black54,
                                               ),
                                             ),
@@ -198,24 +194,35 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                         ),
                                       ),
                                       Expanded(
-                                          child: Row(
+                                          child: Column(
+                                        children: [
+                                          Row(
                                             children: [
-                                              Container(
+                                              SizedBox(
                                                 height: 10,
                                                 width: 10,
-                                                decoration: BoxDecoration(
+                                                child: Container(
+                                                  decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
                                                     border: Border.all(
-                                                        color: AppColors
-                                                            .primaryColor
-                                                            .parseColor(),
-                                                        width: 2)),
+                                                      color: AppColors
+                                                          .primaryColor
+                                                          .parseColor(),
+                                                      width: 2,
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
                                               Expanded(
-
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  color: Colors.grey,
+                                                child: SizedBox(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.06,
+                                                  height: 2,
+                                                  child: Container(
+                                                    color: Colors.grey,
+                                                  ),
                                                 ),
                                               ),
                                               const SizedBox(
@@ -226,9 +233,10 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                                   color: AppColors.primaryColor
                                                       .parseColor(),
                                                   borderRadius:
-                                                  BorderRadius.circular(55),
+                                                      BorderRadius.circular(55),
                                                 ),
-                                                padding: const EdgeInsets.all(8),
+                                                padding:
+                                                    const EdgeInsets.all(8),
                                                 child: const Icon(
                                                   Icons.directions_bus,
                                                   size: 22,
@@ -239,24 +247,39 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                                 width: 5,
                                               ),
                                               Expanded(
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  color: Colors.grey,
+                                                child: SizedBox(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.06,
+                                                  height: 2,
+                                                  child: Container(
+                                                    color: Colors.grey,
+                                                  ),
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 height: 10,
                                                 width: 10,
-                                                decoration: BoxDecoration(
+                                                child: Container(
+                                                  decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
                                                     border: Border.all(
-                                                        color: AppColors
-                                                            .primaryColor
-                                                            .parseColor(),
-                                                        width: 2)),
+                                                      color: AppColors
+                                                          .primaryColor
+                                                          .parseColor(),
+                                                      width: 2,
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
                                             ],
-                                          )),
+                                          ),
+                                          const SizedBox(
+                                            height: 2,
+                                          ),
+                                        ],
+                                      )),
                                       Expanded(
                                         child: Column(
                                           children: [
@@ -271,10 +294,8 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                             Text(
                                               e.to ?? "",
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: AppColors.primaryColor
-                                                    .parseColor(),
-                                                fontSize: 17,
+                                              style: const TextStyle(
+                                                fontSize: 14,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -282,7 +303,7 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                                               e.dropping ?? "",
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 15,
+                                                fontSize: 13,
                                                 color: Colors.black54,
                                               ),
                                             ),
@@ -528,11 +549,9 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                         : () async {
                             getIt<AppRoute>().router.go(RoutePath.home);
                           },
-                    child: isLoading
-                        ? const CircleLoader()
-                        : Text(
-                            AppLocalizations.of(context)!.go_to_home,
-                          ),
+                    child: Text(
+                      AppLocalizations.of(context)!.go_to_home,
+                    ),
                   ),
                 ),
               ),

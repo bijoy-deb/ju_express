@@ -65,9 +65,8 @@ class _PassengerInputLayoutState extends State<PassengerInputLayout> {
   late HomePageIntRes homePageIntRes = sp.getHomePageInt();
   @override
   void initState() {
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       maxPhoneLength = await getMaxLength(Constants.dialCode);
-      print("maxPhoneLength   :  $maxPhoneLength");
 
       setState(() {});
     });
@@ -190,6 +189,9 @@ class _PassengerInputLayoutState extends State<PassengerInputLayout> {
 
   @override
   Widget build(BuildContext context) {
+    log("price in pass ${widget.controller.selectFairType} ");
+    //print faredetails all elements
+    print("FareDetails: ${widget.fareDetails.toJson()}");
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
@@ -766,7 +768,7 @@ class _PassengerInputLayoutState extends State<PassengerInputLayout> {
       widget.controller.phoneErrorTextKin =
           AppLocalizations.of(context)!.enter_mobile;
     } else {
-      Map isPhoneValid = await phoneLengthCheck(value.trim(), dialCode!);
+      Map isPhoneValid = await phoneLengthCheck(value.trim(), dialCode);
 
       if (isPhoneValid['status']) {
         widget.controller.phoneErrorText = "";

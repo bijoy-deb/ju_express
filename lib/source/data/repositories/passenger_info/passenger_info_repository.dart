@@ -40,6 +40,9 @@ class PassengerInfoRepository extends IPassengerInfoRepository {
       'license': getLicence(),
       "version": getIt<PackageInfo>().version,
       "ln": getIt<AppSharedPrefs>().getLnCode(),
+      "authcode": getIt<AppSharedPrefs>().getAuthCode().isNotEmpty
+          ? getIt<AppSharedPrefs>().getAuthCode()
+          : ""
     };
     body.addAll(ticketSalePrams.toJson());
     Response? response;
